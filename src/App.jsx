@@ -1,5 +1,5 @@
 import ParticleBg from "./components/ParticleBg"
-import Navbar from "./components/Navbar"
+import Navbar from "./components//navbar/Navbar"
 
 function App() {
 
