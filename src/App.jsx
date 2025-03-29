@@ -1,5 +1,6 @@
 import ParticleBg from "./components/ParticleBg"
 import Navbar from "./components//navbar/Navbar"
+// import HeroSection from "./components/HeroSection"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <ParticleBg />
       <Navbar/>
+      {/* <HeroSection/> */}
     </>
   )
 }

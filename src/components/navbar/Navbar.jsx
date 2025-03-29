@@ -1,10 +1,7 @@
-import React from 'react'
-import pointer from '../../assets/svg/bullseye-cursor.svg'
-import circle from '../../assets/svg/circle.svg'
-import Checkbox from './Checkbox'
-import Button from './Button'
+import React from 'react';
+import Checkbox from './Checkbox';
 import { useState, useEffect, useRef } from 'react';
-
+import Button from './Button';
 const Navbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const menuRef = useRef(null);
@@ -35,29 +32,25 @@ const Navbar = () => {
       checkboxRef.current.click();
     }
   };
+  
 
   return (
-    <div className='bg-gray/10 backdrop-blur-lg shadow-md w-full flex justify-center '>
-      <nav className='flex justify-between items-center px-2 lg:px-12 py-4  text-white w-[90vw]  rounded-b-4xl '>
-        <div className="logo">
-          <span className='font-bold text-2xl'>DOM<span className='text-primary font-extrabold'>DEV</span></span>
+    <nav ref={menuRef} className='flex px-12 py-4 justify-between border-gray items-center sticky top-0 z-4 text-white'>
+        <h1 className='font-bold text-lg flex flex-col items-center mt-1.5'>
+          DOMDEV
+        </h1>
+        <div
+        className={`nav-links flex border border-gray-200 px-4 py-3 rounded-3xl text-white items-center gap-8 ${
+          isMenuVisible ? "show" : "" }`}>
+            <a href="#" onClick={closeMenu} className=''>Home</a>
+            <a href="#about" onClick={closeMenu} className=''>About</a>
+            <a href="#products" onClick={closeMenu} className=''>Projects</a>
+            <a href="#testimonial" onClick={closeMenu} className=''>Contact</a>
+            <a href='#contact' onClick={closeMenu} className='font-semibold px-4 py-2 rounded-2xl text-black bg-[#dca43c] lg:hidden '>Contact Us</a>
         </div>
-        <div className={`links lg:border-[1.4px] lg:border-gray-400 p-2 lg:rounded-3xl nav-cont `}>
-          <img src={pointer} alt="" className='h-[32px] hidden lg:inline-block ml-2 mr-8' />
-          <div className={`inline-block nav-links ${isMenuVisible ? "show" : ""}`}>
-          <a href="" className='px-4 text-text hover:text-white'>About</a>
-          <a href="" className='px-4 text-text hover:text-white'>Projects</a>
-          <a href="" className='px-4 text-text hover:text-white'>Contact</a>
-          <button className="button inline-block lg:hidden ">Get in touch</button>
-          </div>
-          <img src={circle} alt="" className='h-[31px] hidden lg:inline-block mr-2 ml-8' />
-        </div>
-        <Button/>
-        <div className='lg:hidden nav-menu'>
+        <Button />
         <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />
-        </div>
-      </nav>
-    </div>
+    </nav>
   )
 }
 
