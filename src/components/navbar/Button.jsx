@@ -12,9 +12,9 @@ const Button = () => {
 const StyledWrapper = styled.div`
   .button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 8px 24px;
     border: 1px solid #4f4f4f;
-    border-radius: 4px;
+    border-radius: 12px;
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;

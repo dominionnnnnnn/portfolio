@@ -36,17 +36,17 @@ const Navbar = () => {
 
   return (
     <nav ref={menuRef} className='flex px-12 py-4 justify-between border-gray items-center sticky top-0 z-4 text-white'>
-        <h1 className='font-bold text-lg flex flex-col items-center mt-1.5'>
+        <h1 className='font-bold text-xl flex flex-col items-center mt-1.5'>
           DOMDEV
         </h1>
         <div
-        className={`nav-links flex border border-gray-200 px-4 py-3 rounded-3xl text-white items-center gap-8 ${
+        className={`nav-links flex border border-gray-200 lg:px-4 py-3 rounded-3xl text-white font-semibold items-center lg:gap-8 ${
           isMenuVisible ? "show" : "" }`}>
             <a href="#" onClick={closeMenu} className=''>Home</a>
             <a href="#about" onClick={closeMenu} className=''>About</a>
             <a href="#products" onClick={closeMenu} className=''>Projects</a>
             <a href="#testimonial" onClick={closeMenu} className=''>Contact</a>
-            <a href='#contact' onClick={closeMenu} className='font-semibold px-4 py-2 rounded-2xl text-black bg-[#dca43c] lg:hidden '>Contact Us</a>
+            <a href='#contact' onClick={closeMenu}>Contact Us</a>
         </div>
         <Button />
         <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />
