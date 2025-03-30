@@ -46,7 +46,6 @@ const Navbar = () => {
             <a href="#about" onClick={closeMenu} className=''>About</a>
             <a href="#products" onClick={closeMenu} className=''>Projects</a>
             <a href="#testimonial" onClick={closeMenu} className=''>Contact</a>
-            <a href='#contact' onClick={closeMenu}>Contact Us</a>
         </div>
         <Button />
         <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />
