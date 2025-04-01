@@ -11,6 +11,23 @@
   font-optical-sizing: auto;
 }
 
+
+/* download button */
+.download-btn {
+  height: 48px;
+  width: 138px;
+  cursor: pointer;
+  background: white;
+  border: none;
+  background: var(--color-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.button-content {
+  transform: translateY(-45px);
+  transition: all 250ms ease-in-out;
+}
   
 
 
