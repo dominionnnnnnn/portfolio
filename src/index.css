@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 *{
@@ -7,7 +7,8 @@
     font-family: "Josefin Sans", sans-serif;
   }
 .name{
-  font-family: "DM Serif Display", serif !important; 
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
 }
 
   

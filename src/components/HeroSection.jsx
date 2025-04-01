@@ -11,9 +11,9 @@ const HeroSection = () => {
   });
 
   return (
-    <div className='flex flex-col items-center py-8'>
-        <h1 className='mt-8 mb-3 text-7xl text-white tracking-wide font-bold'>I'm <span className='text-[#00A8E8] font-extrabold'>Dominion</span>,</h1>
-        <h1 className='text-5xl text-white font-bold mb-4 '>{text}<Cursor cursorStyle="|" /></h1>
+    <div className='flex flex-col items-center py-8 my-8 justify-center'>
+        <h1 className='mt-8 mb-3 text-5xl text-white tracking-wide font-semibold'>I'm <span className='text-[#00A8E8] font-extrabold'>Dominion</span>, your</h1>
+        <h1 className='text-8xl text-white font-bold mb-4 '>{text}<Cursor cursorStyle="|" /></h1>
         <p className='text-gray-300 text-lg tracking-wide w-[600px] text-center'>I help businesses grow online by creating efficient, user-friendly websites that boost engagement and drive sales</p>
         <p className='text-gray-400 mt-2 tracking-widest'>REACT | TAILWIND | JAVASCRIPT | PYTHON | GIT</p>
         <div></div>

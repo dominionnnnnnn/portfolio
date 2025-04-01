@@ -35,7 +35,7 @@ const Navbar = () => {
   
 
   return (
-    <nav ref={menuRef} className='flex px-12 py-4 justify-between border-gray items-center sticky top-0 z-4 text-white'>
+    <nav ref={menuRef} className='flex px-12 py-4 justify-between border-gray items-center sticky top-0 z-4 text-white backdrop-blur-sm bg-[rgba(18,18,18,0.65)]'>
         <h1 className='font-bold text-xl flex flex-col items-center mt-1.5'>
           DOMDEV
         </h1>
