@@ -5,20 +5,23 @@ import quote from '../assets/svg/quote.svg'
 
 const About = () => {
   return (
-    <div className='flex my-4 py-4 justify-center gap-24'>
-      <div>
-        <img src={img} alt="" className='h-120' />
-      </div>
-      <div>
-        <header className='text-white text-6xl font-semibold name tracking-wide my-4 leading-18'>Hi, I'm <br /> Adebiyi <br /> AbdulQuawiy</header>
-        <div className='flex gap-6 mt-12'>
-        <img src={quote} alt="" className='h-8 '/>
-        <p className=' text-gray-300 text-3xl font-light tracking-wide w-[500px] mt-8 leading-11'>
-        I craft <span className='font-medium text-white underline underline-offset-4'>high-performance</span>, pixel-perfect <span className='font-medium text-white semi-bold underline underline-offset-4'>responsive</span> web applications that are both visually stunning and incredibly <span className='font-medium  text-white semi-bold underline underline-offset-4'>user-friendly</span>
-        </p>
-        </div>
+    <div className='my-4 py-4 px-17'>
+      <header className='text-4xl text-gray-300 tracking-wide  my-2 border-t-1 border-gray-500 pt-6 font-light'>About me</header>
+      <div className='flex  justify-center gap-24 mt-4'>
+    <div>
+      <img src={img} alt="" className='h-120' />
+    </div>
+    <div>
+      <header className='text-white text-6xl font-semibold name tracking-wide my-4 leading-18'>Hi, I'm <br /> Adebiyi <br /> AbdulQuawiy</header>
+      <div className='flex gap-6 mt-12'>
+      <img src={quote} alt="" className='h-8 '/>
+      <p className=' text-gray-300 text-3xl font-light tracking-wide w-[500px] mt-8 leading-11'>
+      I craft <span className='font-medium text-white underline underline-offset-4'>high-performance</span>, pixel-perfect <span className='font-medium text-white semi-bold underline underline-offset-4'>responsive</span> web applications that are both visually stunning and incredibly <span className='font-medium  text-white semi-bold underline underline-offset-4'>user-friendly</span>
+      </p>
       </div>
     </div>
+  </div>
+  </div>
   )
 }
 
