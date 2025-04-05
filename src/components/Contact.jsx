@@ -1,9 +1,20 @@
 import React from 'react'
+import { FaFacebook, FaInstagram, FaWhatsapp, FaTwitter} from 'react-icons/fa'
+
 
 const Contact = () => {
   return (
-    <div>
-      
+    <div className='my-8 py-4 flex flex-col items-center gap-6'>
+      <header className='text-white font-extrabold text-center text-4xl name tracking-wide'>
+        Got a brand or big project? Let’s talk!
+      </header>
+      <a href="https://forms.gle/taebDeDT4S6fRpGX7" className='text-white border-1 border-[#00A8E8] bg-[#00A8E8] px-4 py-2 rounded-xl mx-auto text-xl'>Contact Me</a>
+      <div className='flex gap-12 mt-3 lg:mt-2'>
+            <a href="#"><FaFacebook className='size-10 text-blue-600'/></a>
+            <a href="#"><FaInstagram  className='size-10 text-[#E4405F]'/></a>
+            <a href="#"><FaWhatsapp  className='size-10 text-green-500'/></a>
+            <a href="#"><FaTwitter  className='size-10  text-blue-500'/></a>
+        </div>
     </div>
   )
 }

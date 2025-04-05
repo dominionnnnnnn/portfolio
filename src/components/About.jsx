@@ -5,14 +5,14 @@ import quote from '../assets/svg/quote.svg'
 
 const About = () => {
   return (
-    <div className='my-4 py-4 px-17'>
-      <header className='text-4xl text-gray-300 tracking-wide  my-2 border-t-1 border-gray-500 pt-6 font-light'>About me</header>
-      <div className='flex  justify-center gap-24 mt-4'>
+    <div className='my-4 py-4 px-4 lg:px-17'>
+      <header className='lg:text-4xl text-3xl text-gray-300 tracking-wide  my-2 border-t-1 border-gray-500 pt-6 font-light'>About me</header>
+      <div className='flex flex-wrap lg:flex-nowrap justify-center gap-12 lg:gap-24 mt-4'>
     <div>
       <img src={img} alt="" className='h-120' />
     </div>
     <div>
-      <header className='text-white text-6xl font-semibold name tracking-wide my-4 leading-18'>Hi, I'm <br /> Adebiyi <br /> AbdulQuawiy</header>
+      <header className='text-white text-4xl lg:text-6xl font-semibold name lg:tracking-wide my-4 leading-18'>Hi, I'm <br /> Adebiyi <br /> AbdulQuawiy</header>
       <div className='flex gap-6 mt-12'>
       <img src={quote} alt="" className='h-8 '/>
       <p className=' text-gray-300 text-3xl font-light tracking-wide w-[500px] mt-8 leading-11'>

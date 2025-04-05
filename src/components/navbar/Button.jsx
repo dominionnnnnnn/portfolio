@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Button = () => {
   return (
     <StyledWrapper className='hidden lg:block'>
-      <button className="button">Get in touch</button>
+      <a className="button" href='https://forms.gle/taebDeDT4S6fRpGX7' >Get in touch</a>
     </StyledWrapper>
   );
 }

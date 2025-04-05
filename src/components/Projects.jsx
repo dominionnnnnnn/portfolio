@@ -15,14 +15,14 @@ const project = [
     "id": 2,
     "title": "Currency Converter",
     "details": 'A real-time currency converter using CurrencyAPI, offering quick and seamless exchange rate conversions.',
-    "link": 'https://estate-temp.vercel.app/',
+    "link": 'https://domconverter.vercel.app/',
     "img": p2
   },
   {
     "id": 3,
     "title": "Blog App",
     "details": 'A personal blog sharing my web dev insights, tech trends, trch journey and programming tips with a clean UI.',
-    "link": 'https://estate-temp.vercel.app/',
+    "link": 'https://dominionnnnnnn.github.io/domblog/',
     "img": p3
   },
 ]
@@ -32,15 +32,16 @@ const Projects = () => {
     <div className='py-4 mt-4'>
       <header className=' mx-17 text-xl text-gray-500 tracking-widest  text-center  my-2 '>TOP PROJECTS</header>
       <p className='mx-17 text-6xl text-white font-semibold text-center my-4'>Portfolio</p>
-      <div className='flex flex-col gap-16  px-16 items-center'>
+      <div className='flex flex-col gap-16  lg:px-16 items-center'>
         {project.map((item) => (
-          <div key={item.id} className='bg-[#1E1E1E] w-[92%] px-4 py-2 rounded-3xl'>
-            <p className='font-light my-4 text-white mx-5 tracking-widest text-xl'>0{item.id} | Fullstack Developer</p>
-            <div className="flex gap-4">
-              <img src={item.img} alt="" className='h-120' />
-              <div className='my-[150px] mx-auto'>
-                <h1 className='text-white text-4xl font-bold tracking-wide '>{item.title}</h1>
-                <p className='text-white text-lg mt-2 font-light name'>{item.details}</p>
+          <div key={item.id} className='bg-[#1E1E1E] w-[92%]  rounded-3xl'>
+            <p className='font-light my-8 text-white mx-8 tracking-widest text-xl'>0{item.id} | Fullstack Developer</p>
+            <div className="flex flex-col lg:flex-row lg:gap-4">
+              <img src={item.img} alt="" className='lg:h-120 h-100 w-91 lg:w-auto' />
+              <div className='lg:my-[150px] my-12 mx-auto px-4 lg:px-0'>
+                <h1 className='text-white  text-3xl lg:text-4xl font-bold tracking-wide '>{item.title}</h1>
+                <p className='text-white  text-lg my-3 font-light name'>{item.details}</p>
+                <a href={item.link} className='text-blue-300'>View Live Site</a>
               </div>
             </div>
           </div>
