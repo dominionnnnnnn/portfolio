@@ -12,10 +12,10 @@ const About = () => {
       <img src={img} alt="" className='h-120' />
     </div>
     <div>
-      <header className='text-white text-4xl lg:text-6xl font-semibold name lg:tracking-wide my-4 leading-18'>Hi, I'm <br /> Adebiyi <br /> AbdulQuawiy</header>
-      <div className='flex gap-6 mt-12'>
-      <img src={quote} alt="" className='h-8 '/>
-      <p className=' text-gray-300 text-3xl font-light tracking-wide w-[500px] mt-8 leading-11'>
+      <header className='text-white text-4xl lg:text-6xl font-bold lg:font-semibold name lg:tracking-wide lg:my-4 leading-14 lg:leading-18'>Hi, I'm <br /> Adebiyi <br /> AbdulQuawiy</header>
+      <div className='flex gap-6 lg:mt-12'>
+      <img src={quote} alt="" className='h-8 hidden lg:block '/>
+      <p className=' text-gray-300 text-xl lg:text-3xl font-light tracking-wide w-[350px] lg:w-[500px]  mt-4 lg:mt-8 leading-11'>
       I craft <span className='font-medium text-white underline underline-offset-4'>high-performance</span>, pixel-perfect <span className='font-medium text-white semi-bold underline underline-offset-4'>responsive</span> web applications that are both visually stunning and incredibly <span className='font-medium  text-white semi-bold underline underline-offset-4'>user-friendly</span>
       </p>
       </div>
