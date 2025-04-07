@@ -29,7 +29,7 @@ const project = [
 
 const Projects = () => {
   return (
-    <div className='py-4 mt-4'>
+    <div id='projects' className='scroll-mt-20 scroll-smooth py-4 mt-4'>
       <header className=' mx-17 text-xl text-gray-500 tracking-widest  text-center  my-2 '>TOP PROJECTS</header>
       <p className='mx-17 text-6xl text-white font-semibold text-center my-4'>Portfolio</p>
       <div className='flex flex-col gap-16  lg:px-16 items-center'>

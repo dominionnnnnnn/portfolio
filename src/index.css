@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 *{
     box-sizing: border-box;
     font-family: "Josefin Sans", sans-serif;
@@ -43,7 +48,7 @@
           right: 0;
           height: 100%;
           width: 250px;
-          background-color: #242424;
+          background-color: #1d1d1d ;
           padding-top: 60px;
           opacity: 0;
           z-index: 9;

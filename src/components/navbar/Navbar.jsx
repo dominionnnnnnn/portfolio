@@ -35,17 +35,17 @@ const Navbar = () => {
   
 
   return (
-    <nav ref={menuRef} className='flex px-6 lg:px-12 py-6 lg:py-4 justify-between border-gray items-center sticky top-0 z-4 text-white backdrop-blur-sm bg-[rgba(18,18,18,0.65)]'>
+    <nav ref={menuRef} className='flex px-6 lg:px-12 py-6 lg:py-4 justify-between border-gray items-center sticky top-0 z-4 text-white lg:backdrop-blur-sm bg-[rgba(18,18,18)] lg:bg-[rgba(18,18,18,0.65)]'>
         <h1 className='font-bold text-xl flex flex-col items-center mt-1.5'>
-          DOMDEV
+          DOMSTACK
         </h1>
         <div
         className={`nav-links flex border border-gray-200 lg:px-4 py-3 rounded-3xl text-white font-semibold items-center lg:gap-8 ${
           isMenuVisible ? "show" : "" }`}>
             <a href="#" onClick={closeMenu} className=''>Home</a>
             <a href="#about" onClick={closeMenu} className=''>About</a>
-            <a href="#products" onClick={closeMenu} className=''>Projects</a>
-            <a href="#testimonial" onClick={closeMenu} className=''>Contact</a>
+            <a href="#projects" onClick={closeMenu} className=''>Projects</a>
+            <a href="#contact" onClick={closeMenu} className=''>Contact</a>
         </div>
         <Button />
         <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />

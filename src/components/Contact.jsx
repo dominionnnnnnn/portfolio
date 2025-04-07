@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaWhatsapp, FaTwitter} from 'react-icons/fa'
 
 const Contact = () => {
   return (
-    <div className='my-8 py-4 flex flex-col items-center gap-6'>
+    <div id='contact' className='scroll-mt-20 scroll-smooth my-8 py-4 flex flex-col items-center gap-6'>
       <header className='text-white font-extrabold text-center text-3xl lg:text-4xl name tracking-wide'>
         Got a brand or big project? Let’s talk!
       </header>
