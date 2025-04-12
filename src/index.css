@@ -15,7 +15,16 @@ html {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
 }
-
+.hero-text{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: -40px;
+  
+}
+.hero-text.show{
+  animation: blurbottom 1000ms forwards;
+}
 
 /* download button */
 .download-btn {
@@ -34,6 +43,56 @@ html {
   transition: all 250ms ease-in-out;
 }
   
+/* animation */
+@keyframes blurtop {
+  0%{
+      filter: blur(40px);
+      opacity: 0;
+      bottom: 70px;
+  }
+  100%{
+      filter: blur(0px);
+      opacity: 1;
+      bottom: 0;
+  }
+}
+@keyframes blurbottom {
+  0%{
+      filter: blur(30px);
+      opacity: 0;
+      bottom: -40px;
+  }
+  100%{
+      filter: blur(0px);
+      opacity: 1;
+      bottom: 0;
+  }
+}
+@keyframes blurright {
+  0%{
+      filter: blur(40px);
+      opacity: 0;
+      right: -70px;
+  }
+  100%{
+      filter: blur(0px);
+      opacity: 1;
+      right: 0;
+  }
+}
+@keyframes blurleft {
+  0%{
+      filter: blur(40px);
+      opacity: 0;
+      left: -70px;
+  }
+  100%{
+      filter: blur(0px);
+      opacity: 1;
+      left: 0;
+  }
+}
+
 
 
     @media (max-width: 768px){
