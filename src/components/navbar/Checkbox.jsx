@@ -7,7 +7,7 @@ const Checkbox = ({ setIsMenuVisible, checkboxRef }) => {
   };
 
   return (
-    <StyledWrapper className="lg:hidden z-11">
+    <StyledWrapper className="md:hidden z-11">
       <label className="burger" htmlFor="burger">
         <input type="checkbox" id="burger" ref={checkboxRef} onChange={handleToggle} />
         <span />

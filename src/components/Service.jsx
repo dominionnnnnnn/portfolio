@@ -48,9 +48,9 @@ const Service = () => {
     <div className='lg:px-14 px-6 py-4 mt-8'>
       <header className='text-gray-200 text-center text-4xl tracking-widest'>My Services</header>
       <p className='text-gray-400 text-center mt-2 text-lg'>Explore my offerings </p>
-      <div className='flex flex-wrap  lg:gap-6'>
+      <div className='flex flex-wrap md:gap-6  md:justify-center lg:gap-6'>
         {Services.map((service) => (
-          <div key={service.id} className='bg-[#1E1E1E] flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] border-1 border-[#1e1e1e] p-6 rounded-xl'>
+          <div key={service.id} className='bg-[#1E1E1E] flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] md:w-[340px] border-1 border-[#1e1e1e] p-6 rounded-xl'>
             <img src={service.icon} alt="" className='h-16 w-16 ' />
             <div className='text-gray-200'>
               <h1 className='text-2xl font-bold my-2'>{service.title}</h1>

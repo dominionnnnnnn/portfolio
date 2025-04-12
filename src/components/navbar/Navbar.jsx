@@ -35,12 +35,12 @@ const Navbar = () => {
   
 
   return (
-    <nav ref={menuRef} className='flex px-6 lg:px-12 py-6 lg:py-4 justify-between border-gray items-center sticky top-0 z-4 text-white lg:backdrop-blur-sm bg-[rgba(18,18,18)] lg:bg-[rgba(18,18,18,0.65)]'>
+    <nav ref={menuRef} className='flex px-6 lg:px-12 py-6 lg:py-4 justify-between lg:border-gray items-center sticky top-0 z-4 text-white md:backdrop-blur-sm bg-[rgba(18,18,18)] md:bg-[rgba(18,18,18,0.65)]'>
         <h1 className='font-bold text-xl flex flex-col items-center mt-1.5'>
           DOMSTACK
         </h1>
         <div
-        className={`nav-links flex border border-gray-200 lg:px-4 py-3 rounded-3xl text-white font-semibold items-center lg:gap-8 ${
+        className={`nav-links flex border border-gray-200 md:px-4 md:py-2   lg:py-3 rounded-3xl text-white font-semibold items-center md:gap-8 ${
           isMenuVisible ? "show" : "" }`}>
             <a href="#" onClick={closeMenu} className=''>Home</a>
             <a href="#about" onClick={closeMenu} className=''>About</a>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Button = () => {
   return (
-    <StyledWrapper className='hidden lg:block'>
+    <StyledWrapper className='hidden md:block'>
       <a className="button" href='https://forms.gle/taebDeDT4S6fRpGX7' >Get in touch</a>
     </StyledWrapper>
   );

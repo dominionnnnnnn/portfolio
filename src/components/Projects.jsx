@@ -36,7 +36,7 @@ const Projects = () => {
         {project.map((item) => (
           <div key={item.id} className='bg-[#1E1E1E] w-[92%]  rounded-3xl'>
             <p className='font-light my-8 text-white mx-8 tracking-widest text-xl'>0{item.id} | Fullstack Developer</p>
-            <div className="flex flex-col lg:flex-row lg:gap-4">
+            <div className="flex flex-col md:flex-row lg:gap-4">
               <img src={item.img} alt="" className='lg:h-120 h-100 w-91 lg:w-auto' />
               <div className='lg:my-[150px] my-12 mx-auto px-4 lg:px-0'>
                 <h1 className='text-white  text-3xl lg:text-4xl font-bold tracking-wide '>{item.title}</h1>
