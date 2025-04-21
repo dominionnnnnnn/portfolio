@@ -10,10 +10,10 @@ const Contact = () => {
       </header>
       <a href="https://forms.gle/taebDeDT4S6fRpGX7" className='text-white border-1 border-[#00A8E8] bg-[#00A8E8] px-4 py-2 rounded-xl mx-auto text-xl'>Contact Me</a>
       <div className='flex gap-12 mt-3 lg:mt-2'>
-            <a href="#"><FaFacebook className='size-10 text-blue-600'/></a>
-            <a href="#"><FaInstagram  className='size-10 text-[#E4405F]'/></a>
-            <a href="https://wa.me/+2349038207504?text=Hello%20I%20would%20like%20to%20get%20in%20touch!"><FaWhatsapp  className='size-10 text-green-500'/></a>
-            <a href="https://twitter.com/messages/compose?recipient_id=Dominion864414"><FaTwitter  className='size-10  text-blue-500'/></a>
+            <a href="#"><FaFacebook className='size-8  text-gray-300'/></a>
+            <a href="#"><FaInstagram  className='size-8 text-gray-300'/></a>
+            <a href="https://wa.me/+2349038207504?text=Hello%20I%20would%20like%20to%20get%20in%20touch!"><FaWhatsapp  className='size-8 text-gray-300'/></a>
+            <a href="https://twitter.com/messages/compose?recipient_id=Dominion864414"><FaTwitter  className='size-8  text-gray-300'/></a>
         </div>
     </div>
   )
