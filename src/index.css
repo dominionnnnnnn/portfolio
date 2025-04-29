@@ -25,7 +25,39 @@ html {
 .hero-text.show{
   animation: blurbottom 1000ms forwards;
 }
-
+.about-header{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  left: -70px;
+}
+.about-header.show{
+  animation: blurleft 1000ms forwards;
+}
+.about-img{
+  opacity: 0;
+}
+.about-img.show{
+  animation: fade 1500ms forwards;
+}
+.headertext{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: 70px;
+}
+.headertext.show{
+  animation: blurtop 1000ms forwards;
+}
+.bottomtext{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: -40px;
+}
+.bottomtext.show{
+  animation: blurbottom 1000ms forwards;
+}
 /* download button */
 .download-btn {
   height: 48px;
@@ -44,6 +76,16 @@ html {
 }
   
 /* animation */
+@keyframes fade{
+  0%{
+      filter: blur(40px);
+      opacity: 0;
+  }
+  100%{
+      filter: blur(0px);
+      opacity: 1;
+  }
+}
 @keyframes blurtop {
   0%{
       filter: blur(40px);
