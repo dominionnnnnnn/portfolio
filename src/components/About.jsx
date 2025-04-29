@@ -8,8 +8,6 @@ const About = () => {
   const { isVisible: isHeaderTextVisible, elementRef: headerTextRef } = useIntersectionObserver();
   const { isVisible: isBottomTextVisible, elementRef: bottomTextRef } = useIntersectionObserver();
   const { isVisible: isImgVisible, elementRef: imgRef } = useIntersectionObserver();
-  const { isVisible: isButtonVisible, elementRef: buttonRef } = useIntersectionObserver();
-  const { isVisible: isCard1Visible, elementRef: card1Ref } = useIntersectionObserver();
 
   return (
     <div id='about'  className='scroll-mt-20 scroll-smooth my-4 py-4 px-4 md:px-10 lg:px-17'>
