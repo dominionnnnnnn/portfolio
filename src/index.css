@@ -34,6 +34,15 @@ html {
 .about-header.show{
   animation: blurleft 1000ms forwards;
 }
+.service-header{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: 70px;
+}
+.service-header.show{
+  animation: blurtop 1000ms forwards;
+}
 .about-img{
   opacity: 0;
 }
@@ -58,6 +67,24 @@ html {
 .bottomtext.show{
   animation: blurbottom 1000ms forwards;
 }
+.servicebottom{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: -40px;
+}
+.servicebottom.show{
+  animation: blurbottom 1000ms forwards;
+}
+.s-card{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: 70px;
+}
+.s-card.show{
+  animation: blurtop 1000ms forwards;
+}
 /* download button */
 .download-btn {
   height: 48px;
@@ -78,7 +105,7 @@ html {
 /* animation */
 @keyframes fade{
   0%{
-      filter: blur(40px);
+      filter: blur(30px);
       opacity: 0;
   }
   100%{
@@ -88,7 +115,7 @@ html {
 }
 @keyframes blurtop {
   0%{
-      filter: blur(40px);
+      filter: blur(30px);
       opacity: 0;
       bottom: 70px;
   }
@@ -112,7 +139,7 @@ html {
 }
 @keyframes blurright {
   0%{
-      filter: blur(40px);
+      filter: blur(30px);
       opacity: 0;
       right: -70px;
   }

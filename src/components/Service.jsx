@@ -5,6 +5,8 @@ import seo from '../assets/svg/seo.png'
 import google from '../assets/svg/gbusiness.png'
 import cloud from '../assets/svg/cloud.png'
 import Optimizaton from '../assets/svg/optimization.png'
+import useIntersectionObserver from "./hooks/useIntersectionObserver";
+
 const Services = [
   {
     "id": 1,
@@ -44,20 +46,29 @@ const Services = [
   }
 ]
 const Service = () => {
+  const { isVisible: isHeaderVisible, elementRef: headerRef } = useIntersectionObserver();
+  const { isVisible: isBottomTextVisible, elementRef: bottomTextRef } = useIntersectionObserver();
+
+
   return (
     <div className='lg:px-14 px-6 py-4 mt-8'>
-      <header className='text-gray-200 text-center text-4xl tracking-widest'>My Services</header>
-      <p className='text-gray-400 text-center mt-2 text-lg'>Explore my offerings </p>
+      <header ref={headerRef} className={`text-gray-200 text-center text-4xl tracking-widest service-header ${isHeaderVisible ? "show": ""}`}>My Services</header>
+      <p ref={bottomTextRef} className={`text-gray-400 text-center mt-2 text-lg servicebottom ${isBottomTextVisible ? "show" : ""}`}>Explore my offerings </p>
       <div className='flex flex-wrap md:gap-6  md:justify-center lg:gap-6'>
-        {Services.map((service) => (
-          <div key={service.id} className='bg-[#1E1E1E] flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] md:w-[340px] border-1 border-[#1e1e1e] p-6 rounded-xl'>
-            <img src={service.icon} alt="" className='h-16 w-16 ' />
-            <div className='text-gray-200'>
-              <h1 className='text-2xl font-bold my-2'>{service.title}</h1>
-              <p className='text-gray-400 text-lg tracking-wide'>{service.text}</p>
+        {
+          Services.map((service) => {
+            const { isVisible: isCard1Visible, elementRef: cardRef } = useIntersectionObserver();
+
+            return(
+            <div ref={cardRef} key={service.id} className={`bg-[#1E1E1E] flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] md:w-[340px] border-1 border-[#1e1e1e] p-6 rounded-xl s-card ${isCard1Visible ? "show" : ""}`}>
+              <img src={service.icon} alt="" className='h-16 w-16 ' />
+              <div className='text-gray-200'>
+                <h1 className='text-2xl font-bold my-2'>{service.title}</h1>
+                <p className='text-gray-400 text-lg tracking-wide'>{service.text}</p>
+              </div>
             </div>
-          </div>
-        ))}
+            );})
+          }
       </div>
     </div>
   )
