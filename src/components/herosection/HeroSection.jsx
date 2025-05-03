@@ -22,7 +22,7 @@ const HeroSection = () => {
         <p className='text-gray-300 text-lg tracking-wide w-[400px] leading-relaxed md:w-[600px] text-center'>I help businesses grow online by creating efficient, user-friendly websites that boost engagement and drive sales</p>
         <p className='text-gray-400 text-sm md:text-base mt-2 tracking-wide  md:tracking-widest'>REACT | TAILWIND | JAVASCRIPT | PYTHON | GIT</p>
         <div className='mt-4 flex'>
-          <a href="" className='border-2 border-gray-400 text-white py-2.5  px-4 mx-4 rounded-xl'>Book a Call <FaPhoneAlt className='inline-block mx-1'/></a>
+          <a href="https://calendly.com/adebiyiquawiy2006/30min" className='border-2 border-gray-400 text-white py-2.5  px-4 mx-4 rounded-xl'>Book a Call <FaPhoneAlt className='inline-block mx-1'/></a>
           <Button/>
         </div>
     </div>
