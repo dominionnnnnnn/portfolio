@@ -161,8 +161,10 @@ html {
       left: 0;
   }
 }
-
-
+/* .project-item{
+  perspective: 1200px;
+  transform: scale(0.646535) rotateX(14.1386deg);
+} */
 
     @media (max-width: 768px){
       .nav-links{

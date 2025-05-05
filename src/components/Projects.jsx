@@ -34,7 +34,7 @@ const Projects = () => {
       <p className='mx-17 text-6xl text-white font-semibold text-center my-4'>Portfolio</p>
       <div className='flex flex-col gap-16  lg:px-16 items-center'>
         {project.map((item) => (
-          <div key={item.id} className='bg-[#1E1E1E] w-[92%]  rounded-3xl'>
+          <div key={item.id} className='bg-[#1E1E1E] w-[92%]  rounded-3xl project-item'>
             <p className='font-light my-8 text-white mx-8 tracking-widest text-xl'>0{item.id} | Fullstack Developer</p>
             <div className="flex flex-col md:flex-row lg:gap-4">
               <img src={item.img} alt="" className='lg:h-120 h-100 w-91 lg:w-auto' />
