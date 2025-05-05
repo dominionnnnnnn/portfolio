@@ -21,7 +21,7 @@ const project = [
   {
     "id": 3,
     "title": "Blog App",
-    "details": 'A personal blog sharing my web dev insights, tech trends, trch journey and programming tips with a clean UI.',
+    "details": 'A personal blog sharing my web dev insights, tech trends, tech journey and programming tips with a clean UI.',
     "link": 'https://dominionnnnnnn.github.io/domblog/',
     "img": p3
   },
