@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from "react";
-import Loader from "./Loader"; // adjust path as needed
+import Loader from "./Loader";
 import styled from "styled-components";
 
 const LoaderWrapper = ({ children }) => {
-  const [loading, setLoading] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [hideLoader, setHideLoader] = useState(false);
+  const [startSlide, setStartSlide] = useState(false);
+  const [removeOverlay, setRemoveOverlay] = useState(false);
 
   useEffect(() => {
     const handleLoad = () => {
-      setFadeOut(true); // begin fade-out
-      setTimeout(() => setLoading(false), 500); // remove from DOM after fade
+      // Step 1: Fade out loader
+      setHideLoader(true);
+
+      // Step 2: Start slide after fade
+      setTimeout(() => {
+        setStartSlide(true);
+      }, 600); // match fade duration
+
+      // Step 3: Remove overlay after slide
+      setTimeout(() => {
+        setRemoveOverlay(true);
+      }, 1800); // 600 fade + 1200 slide
     };
 
     if (document.readyState === "complete") {
@@ -22,27 +33,38 @@ const LoaderWrapper = ({ children }) => {
 
   return (
     <>
-      {loading && (
-        <LoaderOverlay fadeOut={fadeOut}>
-          <Loader />
-        </LoaderOverlay>
+      {!removeOverlay && (
+        <Overlay slideOut={startSlide}>
+          <div className={`loader-container ${hideLoader ? "fade-out" : ""}`}>
+            <Loader />
+          </div>
+        </Overlay>
       )}
       {children}
     </>
   );
 };
 
-const LoaderOverlay = styled.div`
+const Overlay = styled.div`
   position: fixed;
   inset: 0;
-  background: #212121;
+  background: #0e0e0e;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: ${(props) => (props.fadeOut ? 0 : 1)};
-  transition: opacity 0.5s ease;
-  pointer-events: none;
+  transition: transform 0.9s ease;
+  transform: ${(props) =>
+    props.slideOut ? "translateY(100%)" : "translateY(0)"};
+
+  .loader-container {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  .loader-container.fade-out {
+    opacity: 0;
+  }
 `;
 
 export default LoaderWrapper;
