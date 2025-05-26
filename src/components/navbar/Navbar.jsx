@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import Checkbox from './Checkbox';
 import { useState, useEffect, useRef } from 'react';
 import Button from './Button';
@@ -42,10 +42,10 @@ const Navbar = () => {
         <div
         className={`nav-links flex border border-gray-200 md:px-4 md:py-2   lg:py-3 rounded-3xl text-white font-semibold items-center md:gap-8 ${
           isMenuVisible ? "show" : "" }`}>
-            <a href="#" onClick={closeMenu} className=''>Home</a>
-            <a href="#about" onClick={closeMenu} className=''>About</a>
-            <a href="#projects" onClick={closeMenu} className=''>Projects</a>
-            <a href="#contact" onClick={closeMenu} className=''>Contact</a>
+            <Link to="/" onClick={closeMenu} className=''>Home</Link>
+            <Link to="/about" onClick={closeMenu} className=''>About</Link>
+            <Link to="/projects" onClick={closeMenu} className=''>Projects</Link>
+            <Link to="#contact" onClick={closeMenu} className=''>Contact</Link>
         </div>
         <Button />
         <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />

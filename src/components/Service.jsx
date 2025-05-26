@@ -5,7 +5,7 @@ import seo from '../assets/svg/seo.png'
 import google from '../assets/svg/gbusiness.png'
 import cloud from '../assets/svg/cloud.png'
 import Optimizaton from '../assets/svg/optimization.png'
-import useIntersectionObserver from "./hooks/useIntersectionObserver";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const Services = [
   {

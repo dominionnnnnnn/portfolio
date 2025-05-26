@@ -1,7 +1,7 @@
 import React from 'react'
 import img from "../assets/pimg.jpg"
 import quote from '../assets/svg/quote.svg'
-import useIntersectionObserver from "./hooks/useIntersectionObserver";
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
 
 const About = () => {
   const { isVisible: isHeaderVisible, elementRef: headerRef } = useIntersectionObserver();

@@ -2,7 +2,7 @@ import React from 'react'
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from './Button';
 import { FaPhoneAlt } from 'react-icons/fa';
-import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 const HeroSection = () => {
   const [text] = useTypewriter({
