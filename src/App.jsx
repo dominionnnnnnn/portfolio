@@ -3,7 +3,6 @@ import HomePage from "./pages/HomePage"
 import AboutPage from "./pages/AboutPage"
 import ProjectsPage from "./pages/ProjectsPage"
 import NotFound from "./components/NotFound"
-import ExpLine from "./components/ExpLine"
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom"
 
 const router = createBrowserRouter(
@@ -14,7 +13,6 @@ const router = createBrowserRouter(
         <Route path="/about" element={<AboutPage/>} />
         <Route path="/projects" element={<ProjectsPage/>}/>
       </Route>
-        <Route path="/timeline" element={<ExpLine/>} />
         <Route path="*" element={<NotFound/>} />
     </>
   )
