@@ -161,6 +161,16 @@ html {
       left: 0;
   }
 }
+th {
+  border-bottom: 1px solid #515151c7;
+  text-align: left;
+  padding: 8px;
+}
+td{
+  text-align: left;
+  padding: 8px;
+}
+
 /* .project-item{
   perspective: 1200px;
   transform: scale(0.646535) rotateX(14.1386deg);

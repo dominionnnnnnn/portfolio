@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to="/" onClick={closeMenu} className=''>Home</Link>
             <Link to="/about" onClick={closeMenu} className=''>About</Link>
             <Link to="/projects" onClick={closeMenu} className=''>Projects</Link>
-            <Link to="#contact" onClick={closeMenu} className=''>Contact</Link>
+            <Link to="/contact" onClick={closeMenu} className=''>Contact</Link>
         </div>
         <Button />
         <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />
