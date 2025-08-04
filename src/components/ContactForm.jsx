@@ -46,27 +46,30 @@ const ContactForm = () => {
     <form
       ref={form}
       onSubmit={sendEmail}
-      className="flex flex-col gap-4 w-full max-w-md"
+      className="flex flex-col gap-4  "
     >
+      <label htmlFor="name" className="text-white font-light mx-2">Name*</label>
       <input
         type="text"
         name="name"
         placeholder="Your Name"
         required
-        className=" rounded-xl text-white bg-[#262626] p-3"
+        className=" rounded-xl lg:w-120 text-white  bg-[#262626] p-3"
       />
+      <label htmlFor="email" className="text-white font-light mx-2">Email*</label>
       <input
         type="email"
         name="email"
-        placeholder="Your Email"
+        placeholder="example@gmail.com"
         required
-        className=" rounded-xl text-white bg-[#262626] p-3"
+        className=" rounded-xl lg:w-120 text-white bg-[#262626] p-3"
       />
+      <label htmlFor="message" className="text-white font-light mx-2">Message*</label>
       <textarea
         name="message"
-        placeholder="Your Message"
+        placeholder="Project Inquiry.."
         required
-        className="rounded-xl text-white bg-[#262626] p-3 h-32"
+        className="rounded-xl w-90 lg:w-120 text-white bg-[#262626] p-3 h-32"
       ></textarea>
       <button type="submit" className="bg-white font-semibold rounded-xl text-black py-2 px-4">
         Send Message

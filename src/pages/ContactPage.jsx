@@ -1,42 +1,54 @@
 import React from 'react'
-import { FaEnvelope } from 'react-icons/fa'
+import {
+  FaLinkedin,
+  FaXTwitter,
+  FaWhatsapp,
+  FaEnvelope,
+  FaPhone,
+} from "react-icons/fa6";
+
 import ContactForm from '../components/ContactForm'
 
 const ContactPage = () => {
   return (
-    <div className='py-6'>
-        <div className='py-12 px-8'>
-            <h1 className="text-6xl mt-6 font-extrabold text-white">Contact</h1>
-            <p className='text-xl mt-4 text-gray-400'>I'm always available — contact me through email, social media, or a quick call.</p>
+    <div className='py-6 px-4 lg:px-8'>
+        <h1 className="text-5xl text-white mt-10  font-bold">Let's Talk</h1>
+      <p className="text-[#c1c1c1] lg:w-115 mt-4">
+        Let’s bring your vision to life from social media designs to marketing
+        materials and digital strategy, I’m here to help
+      </p>
+      <div className="flex flex-wrap items-center justify-center my-12 gap-6 lg:gap-2">
+        <div className="flex text-white items-center gap-1">
+          <a href="https://www.linkedin.com/in/devdominion">
+            <FaLinkedin size={20} />
+          </a>
+          <div className="h-1 w-1 rounded-[50%] bg-[#c1d4c0] mx-1"></div>
+          <a href="https://x.com/Dominion864414?t=rMocIolMIppTGQZqkzglXA&s=09">
+            <FaXTwitter size={20} />
+          </a>
+          <div className="h-1 w-1 rounded-[50%] bg-[#c1d4c0] mx-1"></div>
+          <a href="https://wa.me/2349038207504">
+            <FaWhatsapp size={20} />
+          </a>
         </div>
-        <div className='my-3 px-8'>
-          <header className='text-3xl text-gray-200 font-bold'>Professional Contact</header>
-          <h1 className='text-2xl text-gray-300 font-semibold mt-4'>Direct Communication</h1>
-          <table className='text-white w-[50vw] border-1 border-[#515151c7] my-4 bg-black/10 backdrop-blur-md rounded-lg'>
-            <tr>
-              <th>Method</th>
-              <th>Details</th>
-            </tr>
-            <tr>
-              <td>Location</td>
-              <td>Nigeria, Ogunstate</td>
-            </tr>
-            <tr>
-              <td>Time Zone</td>
-              <td>UTC/GMT +1</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td className='text-blue-300'><FaEnvelope className='inline mr-1' />adebiyiquawiy2006@gmail.com</td>
-            </tr>
-          </table>
-        </div>
-        <div className="flex gap-12 justify-center">
-          <p className='text-[#8a8a8a] text-3xl w-122 tracking-wide'>
+        <div className=" bg-[#202020] h-[1px] w-88 lg:w-84 md:w-20"></div>
+        <a href="mailto:adebiyiquawiy2006@gmail.com" className="text-white text-sm tracking-wide">
+          <FaEnvelope className="inline text-[#c1d4c0] mx-1" />
+          adebiyiquawiy2006@gmail.com
+        </a>
+        <div className=" bg-[#202020] h-[1px] w-88 lg:w-84 md:w-20"></div>
+        <a href="" className="text-white text-sm tracking-wide font-semibold">
+          <FaPhone className="inline text-[#c1d4c0] mx-1" />
+          +234 903 820 7504
+        </a>
+      </div>
+        <div className="flex flex-wrap gap-2 lg:justify-between">
+          <p className='text-[#8a8a8a] font-semibold text-2xl lg:text-4xl lg:w-170 mt-6 tracking-wide'>
             <span className='font-bold text-white'>Reach out,</span> and let's create something amazing together.
           </p>
           <ContactForm/>
         </div>
+        
     </div>
   )
 }

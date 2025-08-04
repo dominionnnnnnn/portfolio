@@ -7,6 +7,10 @@ import cloud from '../assets/svg/cloud.png'
 import Optimizaton from '../assets/svg/optimization.png'
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Services = [
   {
     "id": 1,
@@ -48,12 +52,34 @@ const Services = [
 const Service = () => {
   const { isVisible: isHeaderVisible, elementRef: headerRef } = useIntersectionObserver();
   const { isVisible: isBottomTextVisible, elementRef: bottomTextRef } = useIntersectionObserver();
-
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 1000,
+    cssEase: "linear",
+    arrows: false
+  };
 
   return (
     <div className='lg:px-14 px-6 py-4 mt-8'>
-      <header ref={headerRef} className={`text-gray-200 text-center text-4xl tracking-widest service-header ${isHeaderVisible ? "show": ""}`}>My Services</header>
-      <p ref={bottomTextRef} className={`text-gray-400 text-center mt-2 text-lg servicebottom ${isBottomTextVisible ? "show" : ""}`}>Explore my offerings </p>
+      <div ref={headerRef} className={`flex flex-wrap gap-4 lg:gap-2 lg:justify-center items-center ${isHeaderVisible ? "show": ""}`}>
+      <h1 className="text-4xl font-semibold text-white">My Service</h1>
+      <div className="w-[350px] bg-[#202020] h-[1px] md:w-[150px] lg:w-[620px]"></div>
+      <div className="text-gray-300 w-85 md:w-76 lg:w-82 ">
+          <Slider {...settings}>
+            {Services.map((items) => (
+              <div key={items.id}>
+                <h3 className='text-sm'>{items.title}</h3>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+      <p ref={bottomTextRef} className={`text-gray-400 mx-1 mt-4 text-lg servicebottom ${isBottomTextVisible ? "show" : ""}`}>Explore my offerings </p>
       <div className='flex flex-wrap md:gap-6  md:justify-center lg:gap-6'>
         {
           Services.map((service) => {
