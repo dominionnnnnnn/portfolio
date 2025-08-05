@@ -23,7 +23,7 @@ html {
   
 }
 .hero-text.show{
-  animation: blurbottom 1000ms forwards;
+  animation: blurbottom 700ms forwards;
 }
 .about-header{
   filter: blur(0px);
@@ -32,7 +32,7 @@ html {
   left: -70px;
 }
 .about-header.show{
-  animation: blurleft 1000ms forwards;
+  animation: blurleft 700ms forwards;
 }
 .service-header{
   filter: blur(0px);
@@ -41,13 +41,13 @@ html {
   bottom: 70px;
 }
 .service-header.show{
-  animation: blurtop 1000ms forwards;
+  animation: blurtop 700ms forwards;
 }
 .about-img{
   opacity: 0;
 }
 .about-img.show{
-  animation: fade 1500ms forwards;
+  animation: fade 1000ms forwards;
 }
 .headertext{
   filter: blur(0px);
@@ -56,7 +56,7 @@ html {
   bottom: 70px;
 }
 .headertext.show{
-  animation: blurtop 1000ms forwards;
+  animation: blurtop 700ms forwards;
 }
 .bottomtext{
   filter: blur(0px);
@@ -65,7 +65,16 @@ html {
   bottom: -40px;
 }
 .bottomtext.show{
-  animation: blurbottom 1000ms forwards;
+  animation: blurbottom 700ms forwards;
+}
+.bottomtext2{
+  filter: blur(0px);
+  opacity: 0;
+  position: relative;
+  bottom: -40px;
+}
+.bottomtext2.show{
+  animation: blurbottom 700ms forwards;
 }
 .servicebottom{
   filter: blur(0px);

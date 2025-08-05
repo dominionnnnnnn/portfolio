@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   FaLinkedin,
   FaXTwitter,
@@ -7,15 +7,16 @@ import {
   FaPhone,
 } from "react-icons/fa6";
 
-import ContactForm from '../components/ContactForm'
+import ContactForm from "../components/ContactForm";
 
 const ContactPage = () => {
   return (
-    <div className='py-6 px-4 lg:px-8'>
-        <h1 className="text-5xl text-white mt-10  font-bold">Let's Talk</h1>
+    <div className="py-6 px-4 lg:px-8">
+      <h1 className="text-5xl text-white mt-10  font-bold">Let's Talk</h1>
       <p className="text-[#c1c1c1] lg:w-115 mt-4">
-        Let’s bring your vision to life from social media designs to marketing
-        materials and digital strategy, I’m here to help
+        Let’s turn your vision into reality from eye-catching web designs to
+        digital strategy and marketing assets, I’m here to build what your brand
+        needs to stand out.
       </p>
       <div className="flex flex-wrap items-center justify-center my-12 gap-6 lg:gap-2">
         <div className="flex text-white items-center gap-1">
@@ -32,7 +33,10 @@ const ContactPage = () => {
           </a>
         </div>
         <div className=" bg-[#202020] h-[1px] w-88 lg:w-84 md:w-20"></div>
-        <a href="mailto:adebiyiquawiy2006@gmail.com" className="text-white text-sm tracking-wide">
+        <a
+          href="mailto:adebiyiquawiy2006@gmail.com"
+          className="text-white text-sm tracking-wide"
+        >
           <FaEnvelope className="inline text-[#c1d4c0] mx-1" />
           adebiyiquawiy2006@gmail.com
         </a>
@@ -42,15 +46,15 @@ const ContactPage = () => {
           +234 903 820 7504
         </a>
       </div>
-        <div className="flex flex-wrap gap-2 lg:justify-between">
-          <p className='text-[#8a8a8a] font-semibold text-2xl lg:text-4xl lg:w-170 mt-6 tracking-wide'>
-            <span className='font-bold text-white'>Reach out,</span> and let's create something amazing together.
-          </p>
-          <ContactForm/>
-        </div>
-        
+      <div className="flex flex-wrap gap-2 lg:justify-between">
+        <p className="text-[#8a8a8a] font-semibold text-2xl lg:text-4xl lg:w-170 mt-6 tracking-wide">
+          <span className="font-bold text-white">Reach out,</span> and let's
+          create something amazing together.
+        </p>
+        <ContactForm />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;
