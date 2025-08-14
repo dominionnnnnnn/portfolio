@@ -73,7 +73,7 @@ const Testimonial = () => {
         <Slider {...settings}>
           {Review.map((item) => (
             <div key={item.id}>
-              <div className="py-5 px-6 rounded-xl bg-[#1e1e1e] w-92">
+              <div className="py-5 px-6 rounded-xl bg-[#1e1e1e] lg:w-92">
                 <p className="text-[#c1c1c1] font-semibold">"{item.message}"</p>
                 <div className="mt-8 flex gap-2 items-center">
                   <p className="text-white">{item.name}</p>

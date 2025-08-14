@@ -12,7 +12,7 @@ const HomePage = () => {
       <HeroSection />
       <About />
       <Services />
-      <Projects />
+      <Projects count={3} />
       <Testimonial/>
       <Contact />
     </div>

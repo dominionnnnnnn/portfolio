@@ -23,11 +23,11 @@ const ContactPage = () => {
           <a href="https://www.linkedin.com/in/devdominion">
             <FaLinkedin size={20} />
           </a>
-          <div className="h-1 w-1 rounded-[50%] bg-[#c1d4c0] mx-1"></div>
+          <div className="h-1 w-1 rounded-[50%] bg-[#00A8E8] mx-1"></div>
           <a href="https://x.com/Dominion864414?t=rMocIolMIppTGQZqkzglXA&s=09">
             <FaXTwitter size={20} />
           </a>
-          <div className="h-1 w-1 rounded-[50%] bg-[#c1d4c0] mx-1"></div>
+          <div className="h-1 w-1 rounded-[50%] bg-[#00A8E8] mx-1"></div>
           <a href="https://wa.me/2349038207504">
             <FaWhatsapp size={20} />
           </a>
@@ -37,12 +37,12 @@ const ContactPage = () => {
           href="mailto:adebiyiquawiy2006@gmail.com"
           className="text-white text-sm tracking-wide"
         >
-          <FaEnvelope className="inline text-[#c1d4c0] mx-1" />
+          <FaEnvelope className="inline text-[#00A8E8] mx-1" />
           adebiyiquawiy2006@gmail.com
         </a>
         <div className=" bg-[#202020] h-[1px] w-88 lg:w-84 md:w-20"></div>
         <a href="" className="text-white text-sm tracking-wide font-semibold">
-          <FaPhone className="inline text-[#c1d4c0] mx-1" />
+          <FaPhone className="inline text-[#00A8E8] mx-1" />
           +234 903 820 7504
         </a>
       </div>

@@ -4,7 +4,7 @@ import Projects from '../components/Projects'
 const ProjectsPage = () => {
   return (
     <div>
-      <Projects/>   
+      <Projects count={4}/>   
     </div>
   )
 }
