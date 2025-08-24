@@ -3,6 +3,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from './Button';
 import { FaPhoneAlt } from 'react-icons/fa';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import { useInView } from "react-intersection-observer";
 
 const HeroSection = () => {
   const [text] = useTypewriter({
@@ -13,10 +14,14 @@ const HeroSection = () => {
     delaySpeed: 1000,
   });
 
-  const { isVisible, elementRef } = useIntersectionObserver();
+  const { ref, inView } = useInView({
+    
+    threshold: 0.3, // 20% of element should be visible
+  });
+  // const { isVisible, elementRef } = useIntersectionObserver();
 
   return (
-    <div  ref={elementRef} className={`flex flex-col items-center py-8 my-8 justify-center hero-text ${isVisible ? "show" : ""}`}>
+    <div  ref={ref} className={`flex flex-col items-center py-8 my-8 justify-center hero-text ${inView ? "show" : ""}`}>
         <h1 className={`mt-8 mb-3  text-2xl md:text-4xl lg:text-4xl text-white tracking-wide font-semibold `}>I'm <span className='text-[#00A8E8] font-extrabold'>Dominion</span>, your</h1>
         <h1 className='text-4xl md:text-6xl lg:text-8xl text-white font-bold mb-4 '>{text}<Cursor cursorStyle="|" /></h1>
         <p className='text-gray-300 text-lg tracking-wide w-[400px] leading-relaxed md:w-[600px] text-center'>I help businesses grow online by creating efficient, user-friendly websites that boost engagement and drive sales</p>

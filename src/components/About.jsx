@@ -1,21 +1,30 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 import img from "../assets/pimg.jpg";
 import quote from "../assets/svg/quote.svg";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const About = () => {
-  const { isVisible: isHeaderVisible, elementRef: headerRef } =
-    useIntersectionObserver();
-  const { isVisible: isHeaderTextVisible, elementRef: headerTextRef } =
-    useIntersectionObserver();
-  const { isVisible: isBottomTextVisible, elementRef: bottomTextRef } =
-    useIntersectionObserver();
-  const { isVisible: isBottomText2Visible, elementRef: bottomText2Ref } =
-    useIntersectionObserver();
-  const { isVisible: isImgVisible, elementRef: imgRef } =
-    useIntersectionObserver();
+  const { ref: headerRef, inView: isHeaderVisible } = useInView({
+    threshold: 0.3,
+  });
+
+  const { ref: headerTextRef, inView: isHeaderTextVisible } = useInView({
+    threshold: 0.3,
+  });
+
+  const { ref: bottomTextRef, inView: isBottomTextVisible } = useInView({
+    threshold: 0.3,
+  });
+
+  const { ref: bottomText2Ref, inView: isBottomText2Visible } = useInView({
+    threshold: 0.3,
+  });
+
+  const { ref: imgRef, inView: isImgVisible } = useInView({
+    threshold: 0.3,
+  });
 
   return (
     <div
@@ -24,12 +33,13 @@ const About = () => {
     >
       <header
         ref={headerRef}
-        className={`md:text-4xl text-3xl text-gray-300 tracking-wide  my-2 border-t-1 border-gray-500 pt-6 font-light about-header ${
+        className={`md:text-4xl text-3xl text-gray-300 tracking-wide my-2 border-t-1 border-gray-500 pt-6 font-light about-header ${
           isHeaderVisible ? "show" : ""
         }`}
       >
         About me
       </header>
+
       <div className="flex flex-wrap md:flex-nowrap justify-center gap-12 lg:gap-24 mt-4">
         <div>
           <img
@@ -41,24 +51,25 @@ const About = () => {
             }`}
           />
         </div>
+
         <div>
           <header
             ref={headerTextRef}
             className={`text-white text-4xl lg:text-6xl font-bold lg:font-semibold headertext name lg:tracking-wide lg:my-4 leading-14 lg:leading-18 ${
               isHeaderTextVisible ? "show" : ""
-            } `}
+            }`}
           >
-            Hi, I'm <br className="hidden lg:block" /> Adebiyi <br />{" "}
-            AbdulQuawiy
+            Hi, I'm <br className="hidden lg:block" /> Adebiyi <br /> AbdulQuawiy
           </header>
+
           <div
             ref={bottomTextRef}
             className={`flex gap-6 lg:mt-12 bottomtext ${
               isBottomTextVisible ? "show" : ""
             }`}
           >
-            <img src={quote} alt="" className="h-8 hidden md:block " />
-            <p className=" text-gray-300 text-xl lg:text-3xl font-light tracking-wide w-[350px] lg:w-[500px]  mt-4 lg:mt-8 leading-8 lg:leading-11">
+            <img src={quote} alt="" className="h-8 hidden md:block" />
+            <p className="text-gray-300 text-xl lg:text-3xl font-light tracking-wide w-[350px] lg:w-[500px] mt-4 lg:mt-8 leading-8 lg:leading-11">
               I craft{" "}
               <span className="font-medium text-white underline underline-offset-4">
                 high-performance
@@ -68,16 +79,20 @@ const About = () => {
                 responsive
               </span>{" "}
               web applications that are both visually stunning and incredibly{" "}
-              <span className="font-medium  text-white semi-bold underline underline-offset-4">
+              <span className="font-medium text-white semi-bold underline underline-offset-4">
                 user-friendly
               </span>
             </p>
           </div>
         </div>
       </div>
-      <div  ref={bottomText2Ref} className={`px-1  my-4  lg:my-10 bottomtext2 ${
-              isBottomText2Visible ? "show" : ""
-            }`}>
+
+      <div
+        ref={bottomText2Ref}
+        className={`px-1 my-4 lg:my-10 bottomtext2 ${
+          isBottomText2Visible ? "show" : ""
+        }`}
+      >
         <h1 className="text-[#8a8a8a] text-xl lg:text-5xl font-semibold lg:w-[80vw]">
           <span className="text-white">
             Crafting seamless experiences through clean code and smart design
