@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import ParticleBg from "../components/ParticleBg";
 import ScrollToTop from "../components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react"
+import Contact from "../components/Contact";
 
 const Mainlayout = () => {
   return (
@@ -13,6 +14,7 @@ const Mainlayout = () => {
         <ParticleBg />
         <Navbar />
         <Outlet />
+        <Contact />
         <Footer />
     </>
   )

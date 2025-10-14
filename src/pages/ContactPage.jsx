@@ -20,7 +20,7 @@ const ContactPage = () => {
       </p>
       <div className="flex flex-wrap items-center justify-center my-12 gap-6 lg:gap-2">
         <div className="flex text-white items-center gap-1">
-          <a href="https://www.linkedin.com/in/devdominion">
+          <a href="https://www.linkedin.com/in/aabdulquawiy">
             <FaLinkedin size={20} />
           </a>
           <div className="h-1 w-1 rounded-[50%] bg-[#00A8E8] mx-1"></div>
@@ -28,7 +28,7 @@ const ContactPage = () => {
             <FaXTwitter size={20} />
           </a>
           <div className="h-1 w-1 rounded-[50%] bg-[#00A8E8] mx-1"></div>
-          <a href="https://wa.me/2349038207504">
+          <a href="https://wa.me/2348083842079">
             <FaWhatsapp size={20} />
           </a>
         </div>
