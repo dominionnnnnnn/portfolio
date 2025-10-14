@@ -10,7 +10,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        isMenuVisible && // ✅ Only run if the menu is open
+        isMenuVisible && 
         menuRef.current &&
         !menuRef.current.contains(event.target)
       ) {
@@ -32,6 +32,15 @@ const Navbar = () => {
       checkboxRef.current.click();
     }
   };
+
+  
+  useEffect(() => {
+    if (isMenuVisible) {
+      document.body.style.overflow = "hidden"; 
+    } else {
+      document.body.style.overflow = "auto"; 
+    }
+  }, [isMenuVisible]);
   
 
   return (
