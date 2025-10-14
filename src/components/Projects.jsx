@@ -46,31 +46,13 @@ const project = [
 
 const Projects = ({ count }) => {
   return (
-    // <div id='projects' className='scroll-mt-20 scroll-smooth py-4 mt-4'>
-    //   <header className=' mx-17 text-xl text-gray-500 tracking-widest  text-center  my-2 '>TOP PROJECTS</header>
-    //   <p className='mx-17 text-6xl text-white font-semibold text-center my-4'>Portfolio</p>
-    //   <div className='flex flex-col gap-16  lg:px-16 items-center'>
-    //     {project.slice(0, count).map((item) => (
-    //       <div key={item.id} className='bg-[#1E1E1E] w-[92%]  rounded-3xl project-item'>
-    //         <p className='font-light my-8 text-white mx-8 tracking-widest text-xl'>0{item.id} | Fullstack Developer</p>
-    //         <div className="flex flex-col md:flex-row lg:gap-4">
-    //           <img src={item.img} alt="" className='lg:h-120 h-100 w-91 lg:w-auto rounded-t-4xl' />
-    //           <div className='lg:my-[150px] my-12 mx-auto px-4 lg:px-0'>
-    //             <h1 className='text-white  text-3xl lg:text-4xl font-bold tracking-wide '>{item.title}</h1>
-    //             <p className='text-white  text-lg my-3 font-light name'>{item.details}</p>
-    //             <a href={item.link} className='text-blue-300'>View Live Site</a>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
     <div id="projects" className="scroll-mt-20 scroll-smooth py-4 mt-4">
       <div className="flex flex-wrap  gap-6 justify-center mt-6">
         {project.slice(0, count).map((item) => (
           <div
             key={item.id}
-            className="w-[95vw] md:w-140 border-[1.5px] rounded-2xl border-gray-600 my-6 group overflow-hidden"
+            className="w-[93vw] md:w-140 border-[1.5px] rounded-2xl border-gray-600 my-6 group overflow-hidden hover:cursor-pointer"
+            onClick={() => window.open(item.link, "_blank")}
           >
             <img src={item.img} alt="" className="mb-4 rounded-t-2xl transition-transform duration-300 group-hover:scale-110" />
             <div className="px-3 md:px-6 py-4">
