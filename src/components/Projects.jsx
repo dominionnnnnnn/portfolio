@@ -70,17 +70,17 @@ const Projects = ({ count }) => {
         {project.slice(0, count).map((item) => (
           <div
             key={item.id}
-            className="w-100 md:w-140 border-[1.5px] rounded-2xl border-gray-600 my-6 group overflow-hidden"
+            className="w-[95vw] md:w-140 border-[1.5px] rounded-2xl border-gray-600 my-6 group overflow-hidden"
           >
             <img src={item.img} alt="" className="mb-4 rounded-t-2xl transition-transform duration-300 group-hover:scale-110" />
-            <div className="px-6 py-4">
+            <div className="px-3 md:px-6 py-4">
               <h2 className="text-white font-bold my-1">{item.title}</h2>
               <p className="text-[#c5c5c5]">{item.details}</p>
-              <div className="my-4">
+              <div className="mt-4 flex flex-wrap">
                 {item.stack.map((tech, index) => (
                   <span
                     key={index}
-                    className="text-[#c5c5c5] text-sm mr-2 border p-2 rounded-lg"
+                    className="my-1.5 text-[#c5c5c5] text-sm mr-2 border p-2 rounded-lg"
                   >
                     {tech}
                   </span>
