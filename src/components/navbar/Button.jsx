@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Button = () => {
   return (
     <StyledWrapper className='hidden md:block'>
-      <a className="button" href='https://forms.gle/taebDeDT4S6fRpGX7' >Get in touch</a>
+      <Link className="button" to='/contact' >Get in touch</Link>
     </StyledWrapper>
   );
 }

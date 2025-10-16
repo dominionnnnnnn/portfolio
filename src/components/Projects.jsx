@@ -17,6 +17,15 @@ const project = [
   },
   {
     id: 2,
+    title: "Web3 Landing Page",
+    details:
+      "A decentralized application showcasing the potential of blockchain technology with a user-friendly interface.",
+    link: "https://web3-six-tau-85.vercel.app/",
+    img: p5,
+    stack: ["React", "Tailwind CSS", "JavaScript"],
+  },
+  {
+    id: 3,
     title: "Currency Converter",
     details:
       "A real-time currency converter using CurrencyAPI, offering quick and seamless exchange rate conversions.",
@@ -25,22 +34,13 @@ const project = [
     stack: ["React", "Tailwind CSS", "JavaScript", "CurrencyAPI"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Blog App",
     details:
       "A personal blog sharing my web dev insights, tech trends, tech journey and programming tips with a clean UI.",
     link: "https://dominionnnnnnn.github.io/domblog/",
     img: p3,
     stack: ["React", "CSS", "JavaScript"]
-  },
-  {
-    id: 4,
-    title: "Web3 Landing Page",
-    details:
-      "A decentralized application showcasing the potential of blockchain technology with a user-friendly interface.",
-    link: "https://web3-six-tau-85.vercel.app/",
-    img: p5,
-    stack: ["React", "Tailwind CSS", "JavaScript"],
   },
 ];
 
