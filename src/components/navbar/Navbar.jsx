@@ -62,7 +62,7 @@ const Navbar = () => {
   // Two-state navbar: transparent over the hero, solid/blurred once scrolled.
   useEffect(() => {
     const handleScroll = () => {
-      setScrolledPastThreshold(window.scrollY > 20);
+      setScrolledPastThreshold(window.scrollY > 2);
     };
     handleScroll(); // set initial state in case the page loads mid-scroll
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -72,7 +72,7 @@ const Navbar = () => {
   return (
     <nav
       ref={menuRef}
-      className="navbar flex px-6 lg:px-12 py-5 justify-between items-center sticky top-0 z-4"
+      className="navbar flex px-6 lg:px-12 py-5 justify-between items-center sticky top-0 z-50"
       style={{
         background: scrolled ? 'var(--nav-bg)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',

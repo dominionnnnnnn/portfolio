@@ -204,7 +204,7 @@ td { text-align: left; padding: 8px; }
     background-color: var(--mobile-menu-bg);
     padding-top: 60px;
     opacity: 0;
-    z-index: 9;
+    z-index: 60;
   }
   .nav-links.show { display: flex; opacity: 1; }
   .nav-links a {

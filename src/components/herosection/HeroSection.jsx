@@ -94,8 +94,8 @@ const HeroSection = () => {
         </div>
 
         {/* right: tech sphere */}
-        <div className="flex-shrink-0 flex items-center justify-center">
-          <TechSphere size={300} />
+        <div className="flex-shrink-0 flex items-center justify-center w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[440px] lg:h-[440px]">
+          <TechSphere />
         </div>
       </div>
     </div>
