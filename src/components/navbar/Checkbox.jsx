@@ -37,7 +37,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     height: 2px;
     width: 100%;
-    background: white;
+    background: var(--text-primary);
     border-radius: 9px;
     opacity: 1;
     left: 0;

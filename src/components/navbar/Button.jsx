@@ -14,14 +14,14 @@ const StyledWrapper = styled.div`
   .button {
     display: inline-block;
     padding: 8px 24px;
-    border: 1px solid #4f4f4f;
+    border: 1px solid var(--border-default);
     border-radius: 12px;
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;
     font-size: 19px;
     cursor: pointer;
-    color: white;
+    color: var(--text-primary);
     z-index: 1;
   }
 
@@ -48,7 +48,7 @@ const StyledWrapper = styled.div`
     top: 180%;
     width: 160%;
     height: 190%;
-    background-color: #0077B6;
+    background-color: var(--accent-dark);
     border-radius: 50%;
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -57,18 +57,18 @@ const StyledWrapper = styled.div`
 
   .button:hover {
     color: #ffffff;
-    border: 1px solid #0077B6;
+    border: 1px solid var(--accent-dark);
   }
 
   .button:hover:before {
     top: -35%;
-    background-color: #0077B6;
+    background-color: var(--accent-dark);
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
   .button:hover:after {
     top: -45%;
-    background-color: #0077B6;
+    background-color: var(--accent-dark);
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }`;
 

@@ -33,9 +33,10 @@ const About = () => {
     >
       <header
         ref={headerRef}
-        className={`md:text-4xl text-3xl text-gray-300 tracking-wide my-2 border-t-1 border-gray-500 pt-6 font-light about-header ${
+        className={`md:text-4xl text-3xl tracking-wide my-2 border-t-1 pt-6 font-light about-header ${
           isHeaderVisible ? "show" : ""
         }`}
+        style={{ color: 'var(--text-secondary)', borderColor: 'var(--border-default)' }}
       >
         About me
       </header>
@@ -55,9 +56,10 @@ const About = () => {
         <div>
           <header
             ref={headerTextRef}
-            className={`text-white text-4xl lg:text-6xl font-bold lg:font-semibold headertext name lg:tracking-wide lg:my-4 leading-14 lg:leading-18 ${
+            className={`text-4xl lg:text-6xl font-bold lg:font-semibold headertext name lg:tracking-wide lg:my-4 leading-14 lg:leading-18 ${
               isHeaderTextVisible ? "show" : ""
             }`}
+            style={{ color: 'var(--text-primary)' }}
           >
             Hi, I'm <br className="hidden lg:block" /> Adebiyi <br /> AbdulQuawiy
           </header>
@@ -69,17 +71,20 @@ const About = () => {
             }`}
           >
             <img src={quote} alt="" className="h-8 hidden md:block" />
-            <p className="text-gray-300 text-xl lg:text-3xl font-light tracking-wide w-[350px] lg:w-[500px] mt-4 lg:mt-8 leading-8 lg:leading-11">
+            <p
+              className="text-xl lg:text-3xl font-light tracking-wide w-[350px] lg:w-[500px] mt-4 lg:mt-8 leading-8 lg:leading-11"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               I craft{" "}
-              <span className="font-medium text-white underline underline-offset-4">
+              <span className="font-medium underline underline-offset-4" style={{ color: 'var(--text-primary)' }}>
                 high-performance
               </span>
               , pixel-perfect{" "}
-              <span className="font-medium text-white semi-bold underline underline-offset-4">
+              <span className="font-medium semi-bold underline underline-offset-4" style={{ color: 'var(--text-primary)' }}>
                 responsive
               </span>{" "}
               web applications that are both visually stunning and incredibly{" "}
-              <span className="font-medium text-white semi-bold underline underline-offset-4">
+              <span className="font-medium semi-bold underline underline-offset-4" style={{ color: 'var(--text-primary)' }}>
                 user-friendly
               </span>
             </p>
@@ -93,32 +98,33 @@ const About = () => {
           isBottomText2Visible ? "show" : ""
         }`}
       >
-        <h1 className="text-[#8a8a8a] text-xl lg:text-5xl font-semibold lg:w-[80vw]">
-          <span className="text-white">
+        <h1 className="text-xl lg:text-5xl font-semibold lg:w-[80vw]" style={{ color: 'var(--text-muted)' }}>
+          <span style={{ color: 'var(--text-primary)' }}>
             Crafting seamless experiences through clean code and smart design
           </span>
           , built to perform flawlessly across every platform.
         </h1>
 
         <div className="flex flex-wrap items-center gap-4 lg:gap-2 mt-6">
-          <p className="text-gray-400 font-semibold">
-            <span className="font-semibold text-[#00a8e8]">2+</span> Years of
+          <p className="font-semibold" style={{ color: 'var(--text-muted)' }}>
+            <span className="font-semibold" style={{ color: 'var(--accent)' }}>2+</span> Years of
             Experience
           </p>
-          <div className="h-[1px] bg-gray-300 w-[90%] lg:w-35"></div>
-          <p className="text-gray-400 font-semibold">
-            <span className="font-semibold text-[#00a8e8]">40+</span> Completed
+          <div className="h-[1px] w-[90%] lg:w-35" style={{ background: 'var(--border-default)' }}></div>
+          <p className="font-semibold" style={{ color: 'var(--text-muted)' }}>
+            <span className="font-semibold" style={{ color: 'var(--accent)' }}>40+</span> Completed
             Projects
           </p>
-          <div className="h-[1px] bg-gray-300 w-[90%] lg:w-35"></div>
-          <p className="text-gray-400 font-semibold">
-            <span className="font-semibold text-[#00a8e8]">30+</span> Satisfied
+          <div className="h-[1px] w-[90%] lg:w-35" style={{ background: 'var(--border-default)' }}></div>
+          <p className="font-semibold" style={{ color: 'var(--text-muted)' }}>
+            <span className="font-semibold" style={{ color: 'var(--accent)' }}>30+</span> Satisfied
             Clients
           </p>
-          <div className="h-[1px] bg-gray-300 w-[90%] lg:w-35"></div>
+          <div className="h-[1px] w-[90%] lg:w-35" style={{ background: 'var(--border-default)' }}></div>
           <Link
             to="/about"
-            className="text-gray-300 py-2 px-3 rounded-2xl bg-[#202020] font-semibold text-sm"
+            className="py-2 px-3 rounded-2xl font-semibold text-sm"
+            style={{ background: 'var(--bg-input)', color: 'var(--text-secondary)' }}
           >
             More About me <FaArrowRight className="inline" />
           </Link>

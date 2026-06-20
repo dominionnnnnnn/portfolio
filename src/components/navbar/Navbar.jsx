@@ -1,11 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import Checkbox from './Checkbox';
 import { useState, useEffect, useRef } from 'react';
 import Button from './Button';
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../../context/ThemeContext';
+
+const NAV_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/contact', label: 'Contact' },
+];
+
 const Navbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [scrolledPastThreshold, setScrolledPastThreshold] = useState(false);
   const menuRef = useRef(null);
   const checkboxRef = useRef(null); // Reference to the checkbox
+  const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+  // Only the homepage has a hero for the navbar to blend into at scrollY 0 —
+  // every other route stays in the solid/blurred state at all times.
+  const scrolled = !isHome || scrolledPastThreshold;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -41,23 +58,70 @@ const Navbar = () => {
       document.body.style.overflow = "auto"; 
     }
   }, [isMenuVisible]);
-  
+
+  // Two-state navbar: transparent over the hero, solid/blurred once scrolled.
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolledPastThreshold(window.scrollY > 20);
+    };
+    handleScroll(); // set initial state in case the page loads mid-scroll
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav ref={menuRef} className='flex px-6 lg:px-12 py-6 lg:py-4 justify-between lg:border-gray items-center sticky top-0 z-4 text-white md:backdrop-blur-sm bg-[rgba(18,18,18)] md:bg-[rgba(18,18,18,0.65)]'>
-        <Link to="/" className='font-bold text-xl flex flex-col items-center mt-1.5'>
-          DOMSTACK
+    <nav
+      ref={menuRef}
+      className="navbar flex px-6 lg:px-12 py-5 justify-between items-center sticky top-0 z-4"
+      style={{
+        background: scrolled ? 'var(--nav-bg)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
+        borderBottom: scrolled ? '1px solid var(--border-subtle)' : '1px solid transparent',
+        color: 'var(--text-primary)',
+      }}
+    >
+        <Link to="/" onClick={closeMenu} className="flex items-center gap-2 group">
+          <span
+            className="w-2 h-2 rounded-sm transition-transform duration-300 group-hover:rotate-45"
+            style={{ background: 'var(--accent)' }}
+            aria-hidden="true"
+          ></span>
+          <span className="font-bold text-lg tracking-tight">DOMSTACK</span>
         </Link>
+
         <div
-        className={`nav-links flex border border-gray-200 md:px-4 md:py-2   lg:py-3 rounded-3xl text-white font-semibold items-center md:gap-8 ${
-          isMenuVisible ? "show" : "" }`}>
-            <Link to="/" onClick={closeMenu} className=''>Home</Link>
-            <Link to="/about" onClick={closeMenu} className=''>About</Link>
-            <Link to="/projects" onClick={closeMenu} className=''>Projects</Link>
-            <Link to="/contact" onClick={closeMenu} className=''>Contact</Link>
+          className={`nav-links flex items-center md:gap-8 font-medium ${
+            isMenuVisible ? "show" : ""
+          }`}
+        >
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `nav-link${isActive ? ' active' : ''}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
         </div>
-        <Button />
-        <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />
+
+        <div className='flex items-center gap-3'>
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle dark / light mode"
+            className='w-9 h-9 flex items-center justify-center rounded-full border transition-colors duration-200 cursor-pointer'
+            style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
+          >
+            {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
+          </button>
+          <Button />
+          <Checkbox setIsMenuVisible={setIsMenuVisible} checkboxRef={checkboxRef} />
+        </div>
     </nav>
   )
 }

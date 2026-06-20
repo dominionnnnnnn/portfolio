@@ -15,12 +15,20 @@ const HomePage = () => {
       <About />
       <Services />
       <div>
-        <header className=' text-xl text-gray-500 tracking-widest  text-center  mt-6  '>TOP PROJECTS</header>
-        <p className='text-6xl text-white font-semibold text-center my-4'>Portfolio</p>
+        <header className='text-xl tracking-widest text-center mt-6' style={{ color: 'var(--text-muted)' }}>TOP PROJECTS</header>
+        <p className='text-6xl font-semibold text-center my-4' style={{ color: 'var(--text-primary)' }}>Portfolio</p>
       </div>
       <Projects count={4} />
       <div>
-        <Link to="/projects" className="text-white float-right mx-20 overflow-hidden group hover:text-[#00A8E8] transition-colors duration-300">See More <FaArrowRight className="inline mx-2 group-hover:scale-x-140 transition-transform duration-300" /></Link>
+        <Link
+          to="/projects"
+          className="float-right mx-20 overflow-hidden group transition-colors duration-300"
+          style={{ color: 'var(--text-primary)' }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-primary)'; }}
+        >
+          See More <FaArrowRight className="inline mx-2 group-hover:scale-x-140 transition-transform duration-300" />
+        </Link>
       </div>
       <Testimonial/>
     </div>

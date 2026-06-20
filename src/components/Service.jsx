@@ -45,7 +45,7 @@ const Services = [
   {
     id: 6,
     title: "Web Optimization",
-    text: "Speed up and enhance your website for a seamless user experience. Let’s take your business to the next level",
+    text: "Speed up and enhance your website for a seamless user experience. Let's take your business to the next level",
     icon: Optimizaton,
   },
 ];
@@ -59,14 +59,15 @@ const ServiceCard = ({ service }) => {
   return (
     <div
       ref={ref}
-      className={`bg-[#1E1E1E] flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] md:w-[340px] border-1 border-[#1e1e1e] p-6 rounded-xl s-card ${
+      className={`flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] md:w-[340px] border-1 p-6 rounded-xl s-card ${
         inView ? "show" : ""
       }`}
+      style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
     >
       <img src={service.icon} alt="" className="h-16 w-16" />
-      <div className="text-gray-200">
-        <h1 className="text-2xl font-bold my-2">{service.title}</h1>
-        <p className="text-gray-400 text-lg tracking-wide">{service.text}</p>
+      <div style={{ color: 'var(--text-secondary)' }}>
+        <h1 className="text-2xl font-bold my-2" style={{ color: 'var(--text-primary)' }}>{service.title}</h1>
+        <p className="text-lg tracking-wide" style={{ color: 'var(--text-muted)' }}>{service.text}</p>
       </div>
     </div>
   );
@@ -103,9 +104,9 @@ const Service = () => {
           isHeaderVisible ? "show" : ""
         }`}
       >
-        <h1 className="text-4xl font-semibold text-white">My Service</h1>
-        <div className="w-[350px] bg-[#202020] h-[1px] md:w-[150px] lg:w-[620px]"></div>
-        <div className="text-gray-300 w-85 md:w-76 lg:w-82">
+        <h1 className="text-4xl font-semibold" style={{ color: 'var(--text-primary)' }}>My Service</h1>
+        <div className="w-[350px] h-[1px] md:w-[150px] lg:w-[620px]" style={{ background: 'var(--border-default)' }}></div>
+        <div className="w-85 md:w-76 lg:w-82" style={{ color: 'var(--text-secondary)' }}>
           <Slider {...settings}>
             {Services.map((items) => (
               <div key={items.id}>
@@ -118,9 +119,10 @@ const Service = () => {
 
       <p
         ref={bottomTextRef}
-        className={`text-gray-400 mx-1 mt-4 text-lg servicebottom ${
+        className={`mx-1 mt-4 text-lg servicebottom ${
           isBottomTextVisible ? "show" : ""
         }`}
+        style={{ color: 'var(--text-muted)' }}
       >
         Explore my offerings
       </p>

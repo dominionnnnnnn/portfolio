@@ -5,9 +5,9 @@ const ProjectsPage = () => {
   return (
     <div className='py-4 mt-4'>
       <header className="lg:mx-17 mx-4  flex flex-col gap-2">
-        <h3 className="text-[#00A8E8] font-bold">My Work</h3>
-        <h1 className="text-white text-3xl font-bold ">Featured Projects</h1>
-        <p className="text-[#c5c5c5] w-92 ">
+        <h3 className="font-bold" style={{ color: 'var(--accent)' }}>My Work</h3>
+        <h1 className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Featured Projects</h1>
+        <p className="w-92" style={{ color: 'var(--text-secondary)' }}>
           A showcase of projects that reflect my passion for creating modern,
           user-friendly applications.
         </p>

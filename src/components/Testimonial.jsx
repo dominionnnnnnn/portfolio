@@ -9,7 +9,7 @@ const Review = [
     id: 1,
     name: "Olasheu B.",
     message:
-      "You really delivered beyond expectations the website was clean, professional, and done with zero stress. No long talk, just smooth and timely execution from start to finish. I’ll definitely recommend you anytime.",
+      "You really delivered beyond expectations the website was clean, professional, and done with zero stress. No long talk, just smooth and timely execution from start to finish. I'll definitely recommend you anytime.",
     rating: 5,
     role: "Graphic Designer",
   },
@@ -65,22 +65,22 @@ const Testimonial = () => {
     <div className="lg:px-12 px-6 mt-20">
       {/* header */}
       <div className="flex flex-wrap items-center gap-6">
-        <h1 className="text-4xl font-semibold text-white">My Clients</h1>
-        <div className="w-[500px] bg-[#202020] h-[1px] lg:w-[920px]"></div>
+        <h1 className="text-4xl font-semibold" style={{ color: 'var(--text-primary)' }}>My Clients</h1>
+        <div className="w-[500px] h-[1px] lg:w-[920px]" style={{ background: 'var(--border-default)' }}></div>
       </div>
       {/* body */}
       <div className="my-12">
         <Slider {...settings}>
           {Review.map((item) => (
             <div key={item.id}>
-              <div className="py-5 px-6 rounded-xl bg-[#1e1e1e] lg:w-92">
-                <p className="text-[#c1c1c1] font-semibold">"{item.message}"</p>
+              <div className="py-5 px-6 rounded-xl lg:w-92" style={{ background: 'var(--bg-surface)' }}>
+                <p className="font-semibold" style={{ color: 'var(--text-secondary)' }}>"{item.message}"</p>
                 <div className="mt-8 flex gap-2 items-center">
-                  <p className="text-white">{item.name}</p>
-                  <div className=" bg-gray-100 h-[1px] w-50"></div>
+                  <p style={{ color: 'var(--text-primary)' }}>{item.name}</p>
+                  <div className="h-[1px] w-50" style={{ background: 'var(--border-default)' }}></div>
                 </div>
                 <div className="mt-8 flex justify-between items-center">
-                  <p className="text-white text-sm text-[#c1c1c1]">
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                     {item.role}
                   </p>
                   <ReactStars
