@@ -54,27 +54,27 @@ const Contact = () => {
                 <FaXTwitter size={20} />
               </a>
               <div className="h-1 w-1 rounded-[50%] mx-1" style={{ background: 'var(--accent-hover)' }}></div>
-              <a href="https://wa.me/2348083842079">
+              <a href="https://wa.me/2349038207504">
                 <FaWhatsapp size={20} />
               </a>
             </div>
             <div className="h-[1px] w-88 lg:w-75 md:w-20" style={{ background: 'var(--border-default)' }}></div>
             <a
-              href="mailto:aabdulquawiy@gmail.com"
+              href="mailto:adebiyiquawiy2006@gmail.com"
               className="text-sm tracking-wide"
               style={{ color: 'var(--text-primary)' }}
             >
               <FaEnvelope className="inline mx-1" style={{ color: 'var(--accent-hover)' }} />
-              aabdulquawiy@gmail.com
+              adebiyiquawiy2006@gmail.com
             </a>
             <div className="h-[1px] w-88 lg:w-75 md:w-20" style={{ background: 'var(--border-default)' }}></div>
             <a
-              href=""
+              href="tel:+2349038207504"
               className="text-sm tracking-wide font-semibold"
               style={{ color: 'var(--text-primary)' }}
             >
               <FaPhone className="inline mx-1" style={{ color: 'var(--accent-hover)' }} />
-              +234 8083 8420 79
+              +234 903 820 7504
             </a>
           </div>
         </div>

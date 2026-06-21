@@ -1,138 +1,162 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import software from "../assets/svg/software.png";
-import web from "../assets/svg/web.png";
-import seo from "../assets/svg/seo.png";
-import google from "../assets/svg/gbusiness.png";
-import cloud from "../assets/svg/cloud.png";
-import Optimizaton from "../assets/svg/optimization.png";
+import {
+  FaLayerGroup,
+  FaServer,
+  FaDatabase,
+  FaBoltLightning,
+  FaDocker,
+} from "react-icons/fa6";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-const Services = [
+const services = [
   {
     id: 1,
-    title: "Web Development",
-    text: " We build modern, high-performance websites tailored to your personal needs",
-    icon: web,
+    title: "Fullstack Web Applications",
+    text: "End-to-end products built on React and Django \u2014 from the Central Exchange trading platform's 14-component landing experience to Yharah Logistics' order and delivery workflows.",
+    icon: FaLayerGroup,
   },
   {
     id: 2,
-    title: "SEO Optimizaton",
-    text: "Improve your website ranking and attract more organic traffic with our SEO strategies.",
-    icon: seo,
+    title: "API & Backend Architecture",
+    text: "Django REST and Strawberry GraphQL APIs with clean service-layer separation \u2014 the pattern behind Yharah's rider, order, and pricing mutations.",
+    icon: FaServer,
   },
   {
     id: 3,
-    title: "Google Business",
-    text: "Get found easily! We optimize and set up your Google Business profile for maximum visibility.",
-    icon: google,
+    title: "Database Design",
+    text: "Schema design and data modeling across PostgreSQL and Supabase, built for scale and for queries that stay fast as the data grows.",
+    icon: FaDatabase,
   },
   {
     id: 4,
-    title: "Software Development",
-    text: "Custom software solutions designed to streamline your business operations.",
-    icon: software,
+    title: "Real-time Features",
+    text: "Live, synced experiences via Supabase channels and WebSockets \u2014 RuralAid's responder chat and live emergency map run on this.",
+    icon: FaBoltLightning,
   },
   {
     id: 5,
-    title: "Web Hosting",
-    text: "Reliable and secure hosting services to keep your website running smoothly.",
-    icon: cloud,
-  },
-  {
-    id: 6,
-    title: "Web Optimization",
-    text: "Speed up and enhance your website for a seamless user experience. Let's take your business to the next level",
-    icon: Optimizaton,
+    title: "Deployment & Infrastructure",
+    text: "Docker-based CI/CD and Vercel deployments, with Supabase managed as backend infrastructure end to end.",
+    icon: FaDocker,
   },
 ];
 
-const ServiceCard = ({ service }) => {
+const ServiceCard = ({ service, index, featured }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
+
+  const Icon = service.icon;
+  const number = String(index + 1).padStart(2, "0");
 
   return (
     <div
       ref={ref}
-      className={`flex flex-col gap-4 my-6 lg:[width:calc(33.333%-16px)] md:w-[340px] border-1 p-6 rounded-xl s-card ${
-        inView ? "show" : ""
-      }`}
+      className={`service-card relative overflow-hidden flex flex-col gap-4 my-6 border-1 p-6 rounded-xl s-card ${
+        featured
+          ? "lg:[width:calc(66.666%-16px)]"
+          : "lg:[width:calc(33.333%-16px)]"
+      } md:w-[340px] ${inView ? "show" : ""}`}
       style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
     >
-      <img src={service.icon} alt="" className="h-16 w-16" />
-      <div style={{ color: 'var(--text-secondary)' }}>
+      <span
+        className="service-card-number pointer-events-none select-none absolute top-2 right-4 font-bold leading-none"
+        style={{ color: 'var(--text-primary)' }}
+        aria-hidden="true"
+      >
+        {number}
+      </span>
+
+      <div
+        className="service-card-icon relative h-14 w-14 rounded-lg flex items-center justify-center"
+        style={{ background: 'var(--bg-elevated)', color: 'var(--accent)' }}
+      >
+        <Icon size={26} />
+      </div>
+      <div className="relative" style={{ color: 'var(--text-secondary)' }}>
         <h1 className="text-2xl font-bold my-2" style={{ color: 'var(--text-primary)' }}>{service.title}</h1>
-        <p className="text-lg tracking-wide" style={{ color: 'var(--text-muted)' }}>{service.text}</p>
+        <p className={`tracking-wide ${featured ? "text-lg lg:text-xl lg:max-w-[85%]" : "text-lg"}`} style={{ color: 'var(--text-muted)' }}>{service.text}</p>
       </div>
     </div>
   );
 };
 
 const Service = () => {
+  const { ref: eyebrowRef, inView: isEyebrowVisible } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
   const { ref: headerRef, inView: isHeaderVisible } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
 
   const { ref: bottomTextRef, inView: isBottomTextVisible } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 4000,
-    autoplaySpeed: 1000,
-    cssEase: "linear",
-    arrows: false,
-  };
-
   return (
-    <div className="lg:px-14 px-6 py-4 mt-8">
-      <div
-        ref={headerRef}
-        className={`flex flex-wrap gap-4 lg:gap-2 lg:justify-center items-center ${
-          isHeaderVisible ? "show" : ""
-        }`}
-      >
-        <h1 className="text-4xl font-semibold" style={{ color: 'var(--text-primary)' }}>My Service</h1>
-        <div className="w-[350px] h-[1px] md:w-[150px] lg:w-[620px]" style={{ background: 'var(--border-default)' }}></div>
-        <div className="w-85 md:w-76 lg:w-82" style={{ color: 'var(--text-secondary)' }}>
-          <Slider {...settings}>
-            {Services.map((items) => (
-              <div key={items.id}>
-                <h3 className="text-sm">{items.title}</h3>
-              </div>
-            ))}
-          </Slider>
+    <section className="services-section py-12 mt-8">
+      <div className="services-glow services-glow--top" aria-hidden="true"></div>
+      <div className="services-glow services-glow--center" aria-hidden="true"></div>
+      <div className="services-glow services-glow--bottom" aria-hidden="true"></div>
+
+      <div className="relative z-1 lg:px-14 px-6 py-4">
+        <div
+          ref={eyebrowRef}
+          className={`service-eyebrow flex items-center gap-2 mb-3 ${
+            isEyebrowVisible ? "show" : ""
+          }`}
+        >
+          <span
+            className="service-eyebrow-dot h-2 w-2 rounded-full"
+            style={{ background: 'var(--accent)' }}
+          ></span>
+          <span
+            className="text-sm font-semibold tracking-[0.2em] uppercase"
+            style={{ color: 'var(--accent)' }}
+          >
+            Capabilities
+          </span>
+        </div>
+
+        <div
+          ref={headerRef}
+          className={`flex flex-wrap gap-4 lg:gap-2 items-center service-header ${
+            isHeaderVisible ? "show" : ""
+          }`}
+        >
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            What I Build
+          </h1>
+          <div className="service-divider h-[2px] w-[350px] md:w-[150px] lg:w-[620px]"></div>
+        </div>
+
+        <p
+          ref={bottomTextRef}
+          className={`mx-1 mt-4 text-lg servicebottom ${
+            isBottomTextVisible ? "show" : ""
+          }`}
+          style={{ color: 'var(--text-muted)' }}
+        >
+          Fullstack depth, built for African markets
+        </p>
+
+        <div className="flex flex-wrap justify-center md:gap-6 lg:gap-6">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={index}
+              featured={index === 0}
+            />
+          ))}
         </div>
       </div>
-
-      <p
-        ref={bottomTextRef}
-        className={`mx-1 mt-4 text-lg servicebottom ${
-          isBottomTextVisible ? "show" : ""
-        }`}
-        style={{ color: 'var(--text-muted)' }}
-      >
-        Explore my offerings
-      </p>
-
-      <div className="flex flex-wrap md:gap-6 md:justify-center lg:gap-6">
-        {Services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 
