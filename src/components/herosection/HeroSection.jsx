@@ -49,7 +49,7 @@ const HeroSection = () => {
             style={{ color: 'var(--text-secondary)' }}
           >
             I build production-grade web applications — from GraphQL APIs and Django backends
-            to polished React UIs — with a focus on African markets and real user impact.
+            to polished React UIs — for clients and products that need to work in the real world.
           </p>
 
           {/* CTAs */}

@@ -1,137 +1,118 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
-import img from "../assets/pimg.jpg";
-import quote from "../assets/svg/quote.svg";
+import { FaArrowRight } from "react-icons/fa6";
+import TerminalWidget from "./TerminalWidget";
 
-const About = () => {
-  const { ref: headerRef, inView: isHeaderVisible } = useInView({
-    threshold: 0.3,
-  });
+const TECH = ["React", "Django", "GraphQL", "Supabase", "PostgreSQL"];
 
-  const { ref: headerTextRef, inView: isHeaderTextVisible } = useInView({
-    threshold: 0.3,
-  });
-
-  const { ref: bottomTextRef, inView: isBottomTextVisible } = useInView({
-    threshold: 0.3,
-  });
-
-  const { ref: bottomText2Ref, inView: isBottomText2Visible } = useInView({
-    threshold: 0.3,
-  });
-
-  const { ref: imgRef, inView: isImgVisible } = useInView({
-    threshold: 0.3,
-  });
+export default function About() {
+  const { ref: termRef,  inView: termVisible  } = useInView({ triggerOnce: false, threshold: 0.15 });
+  const { ref: textRef,  inView: textVisible  } = useInView({ triggerOnce: false, threshold: 0.15 });
 
   return (
-    <div
-      id="about"
-      className="scroll-mt-20 scroll-smooth my-3 py-3 px-4 md:px-10 lg:px-17"
-    >
-      <header
-        ref={headerRef}
-        className={`md:text-4xl text-3xl tracking-wide my-2 border-t-1 pt-6 font-light about-header ${
-          isHeaderVisible ? "show" : ""
-        }`}
-        style={{ color: 'var(--text-secondary)', borderColor: 'var(--border-default)' }}
-      >
-        About me
-      </header>
+    <section className="about-section">
+      <div className="about-glow about-glow--left"  aria-hidden="true" />
+      <div className="about-glow about-glow--right" aria-hidden="true" />
 
-      <div className="flex flex-wrap md:flex-nowrap justify-center gap-12 lg:gap-24 mt-4">
-        <div>
-          <img
-            ref={imgRef}
-            src={img}
-            alt=""
-            className={`h-120 md:h-100 lg:h-120 about-img ${
-              isImgVisible ? "show" : ""
-            }`}
-          />
+      <div className="relative z-1 lg:px-14 px-6 py-16 lg:py-24">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-2 mb-10">
+          <span className="h-2 w-2 rounded-full" style={{ background: "var(--accent)" }} />
+          <span
+            className="text-sm font-semibold tracking-[0.2em] uppercase"
+            style={{ color: "var(--accent)", fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            About
+          </span>
         </div>
 
-        <div>
-          <header
-            ref={headerTextRef}
-            className={`text-4xl lg:text-6xl font-bold lg:font-semibold headertext name lg:tracking-wide lg:my-4 leading-14 lg:leading-18 ${
-              isHeaderTextVisible ? "show" : ""
-            }`}
-            style={{ color: 'var(--text-primary)' }}
-          >
-            Hi, I'm <br className="hidden lg:block" /> Adebiyi <br /> AbdulQuawiy
-          </header>
+        {/* Two-column: terminal (wider) + text (leaner) */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
+          {/* Terminal — the focal element */}
           <div
-            ref={bottomTextRef}
-            className={`flex gap-6 lg:mt-12 bottomtext ${
-              isBottomTextVisible ? "show" : ""
-            }`}
+            ref={termRef}
+            className={`w-full lg:w-[58%] about-terminal ${termVisible ? "show" : ""}`}
           >
-            <img src={quote} alt="" className="h-8 hidden md:block" />
-            <p
-              className="text-xl lg:text-3xl font-light tracking-wide w-[350px] lg:w-[500px] mt-4 lg:mt-8 leading-8 lg:leading-11"
-              style={{ color: 'var(--text-secondary)' }}
+            <TerminalWidget />
+          </div>
+
+          {/* Text column */}
+          <div
+            ref={textRef}
+            className={`w-full lg:w-[42%] flex flex-col justify-center about-text ${textVisible ? "show" : ""}`}
+          >
+            <h2
+              className="text-3xl lg:text-4xl font-semibold leading-tight mb-5"
+              style={{ color: "var(--text-primary)" }}
             >
-              I craft{" "}
-              <span className="font-medium underline underline-offset-4" style={{ color: 'var(--text-primary)' }}>
-                high-performance
-              </span>
-              , pixel-perfect{" "}
-              <span className="font-medium semi-bold underline underline-offset-4" style={{ color: 'var(--text-primary)' }}>
-                responsive
-              </span>{" "}
-              web applications that are both visually stunning and incredibly{" "}
-              <span className="font-medium semi-bold underline underline-offset-4" style={{ color: 'var(--text-primary)' }}>
-                user-friendly
-              </span>
+              Hi, I'm{" "}
+              <span style={{ color: "var(--accent)" }}>Dominion</span>
+            </h2>
+            <p
+              className="text-sm mb-1"
+              style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}
+            >
+              Adebiyi Abdulquawiy
             </p>
+
+            <p
+              className="text-base lg:text-lg leading-relaxed mt-5 mb-6"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Senior Fullstack Engineer with 2+ years across logistics,
+              fintech, and emergency response systems. I collaborate on backend
+              architecture, lead frontend builds, and ship full-stack products
+              that hold up under real-world conditions.
+            </p>
+
+            <p
+              className="text-base lg:text-lg leading-relaxed mb-8"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Open to remote work worldwide — whether that's joining a product
+              team, taking on a frontend or fullstack gig, or building
+              something from scratch.
+            </p>
+
+            {/* Tech badges */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {TECH.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs font-semibold tracking-wide py-1.5 px-3 rounded-full border"
+                  style={{
+                    color: "var(--text-secondary)",
+                    borderColor: "var(--border-default)",
+                    fontFamily: "'JetBrains Mono', monospace",
+                  }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="flex items-center gap-4 flex-wrap">
+              <Link
+                to="/about"
+                className="flex items-center gap-2 py-2.5 px-5 rounded-full text-sm font-semibold transition-all duration-200 hover:opacity-80"
+                style={{ background: "var(--accent)", color: "#fff" }}
+              >
+                More about me <FaArrowRight size={13} />
+              </Link>
+              <Link
+                to="/contact"
+                className="flex items-center gap-2 py-2.5 px-5 rounded-full text-sm font-semibold border transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                style={{ borderColor: "var(--border-default)", color: "var(--text-secondary)" }}
+              >
+                Get in touch
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-
-      <div
-        ref={bottomText2Ref}
-        className={`px-1 my-4 lg:my-10 bottomtext2 ${
-          isBottomText2Visible ? "show" : ""
-        }`}
-      >
-        <h1 className="text-xl lg:text-5xl font-semibold lg:w-[80vw]" style={{ color: 'var(--text-muted)' }}>
-          <span style={{ color: 'var(--text-primary)' }}>
-            Crafting seamless experiences through clean code and smart design
-          </span>
-          , built to perform flawlessly across every platform.
-        </h1>
-
-        <div className="flex flex-wrap items-center gap-4 lg:gap-2 mt-6">
-          <p className="font-semibold" style={{ color: 'var(--text-muted)' }}>
-            <span className="font-semibold" style={{ color: 'var(--accent)' }}>2+</span> Years of
-            Experience
-          </p>
-          <div className="h-[1px] w-[90%] lg:w-35" style={{ background: 'var(--border-default)' }}></div>
-          <p className="font-semibold" style={{ color: 'var(--text-muted)' }}>
-            <span className="font-semibold" style={{ color: 'var(--accent)' }}>40+</span> Completed
-            Projects
-          </p>
-          <div className="h-[1px] w-[90%] lg:w-35" style={{ background: 'var(--border-default)' }}></div>
-          <p className="font-semibold" style={{ color: 'var(--text-muted)' }}>
-            <span className="font-semibold" style={{ color: 'var(--accent)' }}>30+</span> Satisfied
-            Clients
-          </p>
-          <div className="h-[1px] w-[90%] lg:w-35" style={{ background: 'var(--border-default)' }}></div>
-          <Link
-            to="/about"
-            className="py-2 px-3 rounded-2xl font-semibold text-sm"
-            style={{ background: 'var(--bg-input)', color: 'var(--text-secondary)' }}
-          >
-            More About me <FaArrowRight className="inline" />
-          </Link>
-        </div>
-      </div>
-    </div>
+    </section>
   );
-};
-
-export default About;
+}

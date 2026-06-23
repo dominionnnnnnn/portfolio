@@ -12,7 +12,12 @@ const Skills = [
   "Python",
   "Django",
   "Rest API",
+  "GraphQL",
+  "Strawberry GraphQL",
   "PostgreSQL",
+  "Supabase",
+  "Vite",
+  "Git",
   "Agile",
 ];
 
@@ -30,24 +35,30 @@ const AboutPage = () => {
             </span>
             , also known as
             <span className="font-semibold" style={{ color: 'var(--text-primary)' }}> Dominion</span>, a
-            fullstack developer with 2 years of hands-on experience passionate
-            about creating clean, responsive and user friendly digital
-            solutions. I believe every line of code should serve a purpose and
-            every interface should feel effortless to use.
+            senior fullstack engineer with 2+ years building software across
+            logistics, fintech, and emergency response systems where
+            reliability and real-time data aren't optional.
           </p>
           <p className="lg:w-182 text-lg tracking-wide" style={{ color: 'var(--text-secondary)' }}>
-            I work with <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>React.js</span> and <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Tailwind CSS</span> for visually polished and
-            accessible frontends, paired with <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Django REST Framework</span> and
-            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}> PostgreSQL</span> for powerful and reliable backends. This combination
-            allows me to deliver structured, efficient and scalable applications
-            for different needs.
+            I've collaborated on backend systems for a logistics platform,
+            led frontend development on a P2P crypto trading platform as a
+            freelance gig, and independently built{" "}
+            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>RuralAid</span> — including
+            its real-time responder chat and live emergency map. My stack is{" "}
+            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>React</span> and{" "}
+            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Tailwind CSS</span> on the
+            frontend, <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Django</span> and{" "}
+            <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Strawberry GraphQL</span> on
+            the backend, with <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>PostgreSQL</span>{" "}
+            and <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Supabase</span> handling
+            data and real-time infrastructure.
           </p>
           <p className="lg:w-182 text-lg tracking-wide" style={{ color: 'var(--text-secondary)' }}>
-            My approach blends design sense with technical skill to ensure that
-            every project not only works but also delivers value. I enjoy
-            turning ideas into reality, exploring creative solutions and I am
-            always open to collaborating on meaningful projects that inspire
-            growth and make an impact.
+            What sets my work apart is context — I build for markets with
+            patchy connectivity, mobile-first users, and infrastructure
+            constraints most templates ignore. I'm always open to
+            collaborating on products that need to hold up under real-world
+            conditions, not just demo well.
           </p>
         </div>
         <img src={img} alt="" className="lg:h-115 mt-4 rounded-t-4xl" />

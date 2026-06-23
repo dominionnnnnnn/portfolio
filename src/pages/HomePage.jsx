@@ -11,8 +11,10 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <About />
-      <Services />
+      <div style={{ position: 'relative', zIndex: 1, background: 'var(--bg-page)', overflowX: 'hidden', msOverflowStyle: 'none', scrollbarWidth: 'none' }} className="no-scrollbar">
+        <About />
+        <Services />
+      </div>
       <div>
         <header className='text-xl tracking-widest text-center mt-6' style={{ color: 'var(--text-muted)' }}>TOP PROJECTS</header>
         <p className='text-6xl font-semibold text-center my-4' style={{ color: 'var(--text-primary)' }}>Portfolio</p>

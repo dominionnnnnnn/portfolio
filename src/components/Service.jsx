@@ -12,13 +12,13 @@ const services = [
   {
     id: 1,
     title: "Fullstack Web Applications",
-    text: "End-to-end products built on React and Django \u2014 from the Central Exchange trading platform's 14-component landing experience to Yharah Logistics' order and delivery workflows.",
+    text: "React and Tailwind on the frontend, Django and PostgreSQL on the backend \u2014 including a 14-component trading platform landing experience and a logistics platform's order workflows.",
     icon: FaLayerGroup,
   },
   {
     id: 2,
     title: "API & Backend Architecture",
-    text: "Django REST and Strawberry GraphQL APIs with clean service-layer separation \u2014 the pattern behind Yharah's rider, order, and pricing mutations.",
+    text: "Django REST and Strawberry GraphQL APIs with clean service-layer separation \u2014 the pattern I've contributed to a logistics platform's rider, order, and pricing mutations as part of a backend team.",
     icon: FaServer,
   },
   {
@@ -99,7 +99,7 @@ const Service = () => {
   });
 
   return (
-    <section className="services-section py-12 mt-8">
+    <section className="services-section py-12">
       <div className="services-glow services-glow--top" aria-hidden="true"></div>
       <div className="services-glow services-glow--center" aria-hidden="true"></div>
       <div className="services-glow services-glow--bottom" aria-hidden="true"></div>
@@ -142,7 +142,7 @@ const Service = () => {
           }`}
           style={{ color: 'var(--text-muted)' }}
         >
-          Fullstack depth, built for African markets
+          Fullstack depth across the whole stack
         </p>
 
         <div className="flex flex-wrap justify-center md:gap-6 lg:gap-6">
