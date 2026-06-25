@@ -545,3 +545,155 @@ td { text-align: left; padding: 8px; }
 .terminal-widget:hover {
   box-shadow: 0 0 0 1px var(--accent), 0 8px 40px rgba(var(--accent-rgb), 0.15);
 }
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-page-root {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--bg-page);
+  min-height: 100vh;
+}
+.about-page-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.about-page-glow--tl {
+  top: -100px;
+  left: -160px;
+  width: 520px;
+  height: 520px;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.45) 0%, rgba(var(--accent-rgb), 0.18) 35%, rgba(var(--accent-rgb), 0.05) 65%, transparent 100%);
+}
+.about-page-glow--br {
+  bottom: -120px;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.38) 0%, rgba(var(--accent-rgb), 0.14) 35%, rgba(var(--accent-rgb), 0.04) 65%, transparent 100%);
+}
+
+/* Photo */
+.about-photo-wrap {
+  position: relative;
+  width: 220px;
+  height: 260px;
+  flex-shrink: 0;
+}
+.about-photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, var(--accent), transparent 60%);
+  z-index: 0;
+}
+.about-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 1.4rem;
+}
+
+/* Bio divider */
+.about-bio-divider {
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), var(--border-default) 30%, transparent 80%);
+  opacity: 0.5;
+}
+
+/* CTA strip */
+.about-cta-strip {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ============================================================
+   GLOBAL CTA SECTION (Contact.jsx)
+   ============================================================ */
+.global-cta-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-page);
+}
+.global-cta-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.global-cta-glow--left {
+  top: -80px;
+  left: -160px;
+  width: 500px;
+  height: 500px;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.4) 0%, rgba(var(--accent-rgb), 0.15) 40%, transparent 100%);
+}
+.global-cta-glow--right {
+  bottom: -100px;
+  right: 0;
+  width: 460px;
+  height: 460px;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.32) 0%, rgba(var(--accent-rgb), 0.1) 40%, transparent 100%);
+}
+.global-cta-card:hover {
+  border-color: var(--accent) !important;
+}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-page-root {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-page);
+  min-height: 100vh;
+}
+.contact-page-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.contact-page-glow--tl {
+  top: -80px;
+  left: -160px;
+  width: 500px;
+  height: 500px;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.42) 0%, rgba(var(--accent-rgb), 0.15) 40%, transparent 100%);
+}
+.contact-page-glow--br {
+  bottom: -100px;
+  right: 0;
+  width: 460px;
+  height: 460px;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.3) 0%, rgba(var(--accent-rgb), 0.1) 40%, transparent 100%);
+}
+.contact-info-card:hover {
+  border-color: var(--accent) !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-root {
+  background: var(--bg-surface);
+}
+.footer-top-border {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+.footer-bottom-divider {
+  height: 1px;
+  background: var(--border-subtle);
+}
