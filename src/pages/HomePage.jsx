@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <div style={{ position: 'relative', zIndex: 1, background: 'var(--bg-page)', overflowX: 'hidden', msOverflowStyle: 'none', scrollbarWidth: 'none' }} className="no-scrollbar">
+      <div style={{ position: 'relative', zIndex: 1, background: 'var(--bg-page)', overflowX: 'hidden', overflowY: 'visible', msOverflowStyle: 'none', scrollbarWidth: 'none' }} className="no-scrollbar">
         <About />
         <Services />
       </div>
