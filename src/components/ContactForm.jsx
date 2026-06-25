@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
+import { FaPaperPlane } from "react-icons/fa6";
 
 const ContactForm = () => {
   const form = useRef();
@@ -8,21 +9,19 @@ const ContactForm = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     Swal.fire({
       title: "Sending...",
       text: "Please wait while your message is being sent.",
       allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      },
+      didOpen: () => { Swal.showLoading(); },
     });
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
-      (result) => {
+      () => {
         Swal.fire({
           icon: "success",
           title: "Message Sent!",
@@ -31,7 +30,7 @@ const ContactForm = () => {
         });
         form.current.reset();
       },
-      (error) => {
+      () => {
         Swal.fire({
           icon: "error",
           title: "Oops!",
@@ -43,44 +42,64 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      ref={form}
-      onSubmit={sendEmail}
-      className="flex flex-col gap-4  "
-    >
-      <label htmlFor="name" className="font-light mx-2" style={{ color: 'var(--text-primary)' }}>Name*</label>
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        required
-        className="rounded-xl lg:w-120 p-3"
-        style={{ background: 'var(--bg-input)', color: 'var(--text-primary)' }}
-      />
-      <label htmlFor="email" className="font-light mx-2" style={{ color: 'var(--text-primary)' }}>Email*</label>
-      <input
-        type="email"
-        name="email"
-        placeholder="example@gmail.com"
-        required
-        className="rounded-xl lg:w-120 p-3"
-        style={{ background: 'var(--bg-input)', color: 'var(--text-primary)' }}
-      />
-      <label htmlFor="message" className="font-light mx-2" style={{ color: 'var(--text-primary)' }}>Message*</label>
-      <textarea
-        name="message"
-        placeholder="Project Inquiry.."
-        required
-        className="rounded-xl w-90 lg:w-120 p-3 h-32"
-        style={{ background: 'var(--bg-input)', color: 'var(--text-primary)' }}
-      ></textarea>
-      <button
-        type="submit"
-        className="font-semibold rounded-xl py-2 px-4 text-white"
-        style={{ background: 'var(--accent)' }}
-      >
-        Send Message
+    <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-5">
+
+      <div className="flex flex-col sm:flex-row gap-5">
+        <div className="contact-field flex-1">
+          <label className="contact-field-label">
+            Name <span style={{ color: "var(--accent)" }}>*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
+            className="contact-field-input"
+          />
+        </div>
+        <div className="contact-field flex-1">
+          <label className="contact-field-label">
+            Email <span style={{ color: "var(--accent)" }}>*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            className="contact-field-input"
+          />
+        </div>
+      </div>
+
+      <div className="contact-field">
+        <label className="contact-field-label">
+          Subject
+        </label>
+        <input
+          type="text"
+          name="subject"
+          placeholder="What's this about?"
+          className="contact-field-input"
+        />
+      </div>
+
+      <div className="contact-field">
+        <label className="contact-field-label">
+          Message <span style={{ color: "var(--accent)" }}>*</span>
+        </label>
+        <textarea
+          name="message"
+          placeholder="Tell me about your project, timeline, budget — anything helps."
+          required
+          className="contact-field-input"
+          style={{ minHeight: "140px", resize: "vertical" }}
+        />
+      </div>
+
+      <button type="submit" className="contact-submit-btn">
+        Send Message <FaPaperPlane size={14} />
       </button>
+
     </form>
   );
 };
