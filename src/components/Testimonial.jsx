@@ -1,102 +1,144 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ReactStars from "react-stars";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from "react-icons/fa6";
 
-const Review = [
+const reviews = [
   {
     id: 1,
     name: "Olasheu B.",
-    message:
-      "You really delivered beyond expectations the website was clean, professional, and done with zero stress. No long talk, just smooth and timely execution from start to finish. I'll definitely recommend you anytime.",
-    rating: 5,
     role: "Graphic Designer",
+    rating: 5,
+    message:
+      "You really delivered beyond expectations — the website was clean, professional, and done with zero stress. No long talk, just smooth and timely execution from start to finish. I'll definitely recommend you anytime.",
   },
   {
     id: 2,
     name: "Jimmy O.",
-    message:
-      "From the first conversation to the final result, everything was on point. Clear communication, fast turnaround, and a very polished outcome. You made the process easy and stress-free. The attention to detail really stood out throughout",
-    rating: 4.5,
     role: "E-commerce Merchant",
+    rating: 5,
+    message:
+      "From the first conversation to the final result, everything was on point. Clear communication, fast turnaround, and a very polished outcome. You made the process easy and stress-free. The attention to detail really stood out.",
   },
   {
     id: 3,
     name: "Pelumi A.",
-    message:
-      "Absolutely impressed with your work, you brought the vision to life with zero hassle. Clean design, smooth process, and timely updates. Everything was handled professionally, and the final result was even better than I imagined.",
-    rating: 5,
     role: "Real Estate Founder",
+    rating: 5,
+    message:
+      "Absolutely impressed — you brought the vision to life with zero hassle. Clean design, smooth process, and timely updates. Everything was handled professionally, and the final result was even better than I imagined.",
   },
 ];
 
-const Testimonial = () => {
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          infinite: true,
-          arrows: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          infinite: true,
-          arrows: true,
-          dots: true,
-        },
-      },
-    ],
-  };
-
+function StarRating({ rating }) {
   return (
-    <div className="lg:px-12 px-6 mt-20">
-      {/* header */}
-      <div className="flex flex-wrap items-center gap-6">
-        <h1 className="text-4xl font-semibold" style={{ color: 'var(--text-primary)' }}>My Clients</h1>
-        <div className="w-[500px] h-[1px] lg:w-[920px]" style={{ background: 'var(--border-default)' }}></div>
-      </div>
-      {/* body */}
-      <div className="my-12">
-        <Slider {...settings}>
-          {Review.map((item) => (
-            <div key={item.id}>
-              <div className="py-5 px-6 rounded-xl lg:w-92" style={{ background: 'var(--bg-surface)' }}>
-                <p className="font-semibold" style={{ color: 'var(--text-secondary)' }}>"{item.message}"</p>
-                <div className="mt-8 flex gap-2 items-center">
-                  <p style={{ color: 'var(--text-primary)' }}>{item.name}</p>
-                  <div className="h-[1px] w-50" style={{ background: 'var(--border-default)' }}></div>
-                </div>
-                <div className="mt-8 flex justify-between items-center">
-                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-                    {item.role}
-                  </p>
-                  <ReactStars
-                    count={5}
-                    value={item.rating}
-                    size={24}
-                    color2={"#fbc800"}
-                    edit={false}
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
+    <div className="flex gap-1" aria-label={`${rating} out of 5 stars`}>
+      {[1, 2, 3, 4, 5].map((star) => (
+        <svg key={star} width="15" height="15" viewBox="0 0 20 20"
+          fill={star <= rating ? "#fbc800" : "none"}
+          stroke={star <= rating ? "#fbc800" : "var(--border-default)"}
+          strokeWidth="1.5"
+        >
+          <path d="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78L10 1z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function TestimonialCard({ review, active }) {
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.15 });
+  return (
+    <div
+      ref={ref}
+      className={`testimonial-card ${inView ? "show" : ""} ${active ? "testimonial-card--active" : ""}`}
+    >
+      <FaQuoteLeft className="testimonial-quote-icon" size={22} />
+      <p className="testimonial-message">"{review.message}"</p>
+      <div className="testimonial-footer">
+        <div className="testimonial-avatar" aria-hidden="true">{review.name.charAt(0)}</div>
+        <div className="testimonial-author">
+          <span className="testimonial-name">{review.name}</span>
+          <span className="testimonial-role">{review.role}</span>
+        </div>
+        <div className="ml-auto">
+          <StarRating rating={review.rating} />
+        </div>
       </div>
     </div>
+  );
+}
+
+const Testimonial = () => {
+  const [active, setActive] = useState(0);
+  const { ref: headerRef, inView: headerVisible } = useInView({ triggerOnce: false, threshold: 0.2 });
+
+  const prev = () => setActive((a) => (a - 1 + reviews.length) % reviews.length);
+  const next = () => setActive((a) => (a + 1) % reviews.length);
+
+  return (
+    <section className="testimonial-section">
+      <div className="lg:px-14 px-6 pt-0 pb-20">
+
+        {/* Header — own animation class, not s-card */}
+        <div ref={headerRef} className={`testimonial-header ${headerVisible ? "show" : ""}`}>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="h-2 w-2 rounded-full" style={{ background: "var(--accent)" }} />
+            <span
+              className="text-sm font-semibold tracking-[0.2em] uppercase"
+              style={{ color: "var(--accent)", fontFamily: "'JetBrains Mono', monospace" }}
+            >
+              Client Feedback
+            </span>
+          </div>
+          <div className="flex flex-wrap items-end gap-4 lg:gap-6">
+            <h2
+              className="text-4xl md:text-5xl font-semibold tracking-tight"
+              style={{ color: "var(--text-primary)" }}
+            >
+              What Clients Say
+            </h2>
+            <div
+              className="h-[2px] flex-1 min-w-[60px] max-w-[420px] mb-2"
+              style={{
+                background:
+                  "linear-gradient(to right, rgba(var(--accent-rgb),0.5), var(--border-default) 40%, transparent)",
+              }}
+            />
+          </div>
+          <p className="mt-3 mb-12 text-lg" style={{ color: "var(--text-muted)" }}>
+            Straight from the people I've built for.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="testimonial-grid">
+          {reviews.map((r, i) => (
+            <TestimonialCard key={r.id} review={r} active={i === active} />
+          ))}
+        </div>
+
+        {/* Mobile carousel controls */}
+        <div className="testimonial-controls">
+          <button onClick={prev} className="testimonial-ctrl-btn" aria-label="Previous review">
+            <FaChevronLeft size={14} />
+          </button>
+          <div className="testimonial-dots">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className={`testimonial-dot ${i === active ? "testimonial-dot--active" : ""}`}
+                aria-label={`Go to review ${i + 1}`}
+              />
+            ))}
+          </div>
+          <button onClick={next} className="testimonial-ctrl-btn" aria-label="Next review">
+            <FaChevronRight size={14} />
+          </button>
+        </div>
+
+      </div>
+    </section>
   );
 };
 
