@@ -109,7 +109,7 @@ function FeaturedCard({ project }) {
   const roleStyle = ROLE_STYLES[project.roleType];
 
   return (
-    <div ref={ref} className={`project-featured-card s-card ${inView ? "show" : ""}`}>
+    <div ref={ref} className={`project-featured-card ${inView ? "show" : ""}`}>
       {/* Preview pane */}
       <div className="project-featured-preview">
         <SitePreview url={project.link} title={project.title} />
@@ -179,7 +179,7 @@ function GridCard({ project, index }) {
   return (
     <div
       ref={ref}
-      className={`project-grid-card s-card ${inView ? "show" : ""}`}
+      className={`project-grid-card ${inView ? "show" : ""}`}
       style={{ animationDelay: `${index * 120}ms` }}
     >
       {/* Preview */}
