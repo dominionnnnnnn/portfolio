@@ -4,6 +4,60 @@
 @import "tailwindcss";
 
 /* ============================================================
+   CURSOR FOLLOWER — single inverting circle that trails the mouse
+   (mix-blend-mode: difference inverts whatever is underneath it)
+   ============================================================ */
+@media (pointer: fine) {
+  html,
+  body,
+  * {
+    cursor: none !important;
+  }
+}
+
+.cf-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  mix-blend-mode: difference;
+  will-change: transform;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cf-cursor__label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #000000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.cf-cursor--active .cf-cursor__label {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .cf-cursor {
+    display: none;
+  }
+}
+
+/* ============================================================
    CSS DESIGN TOKENS — dark mode (default)
    ============================================================ */
 :root {

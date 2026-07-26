@@ -4,10 +4,12 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react"
 import Contact from "../components/Contact";
+import CursorFollower from "../components/CursorFollower";
 
 const Mainlayout = () => {
   return (
     <>
+        <CursorFollower />
         <Analytics />
         <ScrollToTop/>
         <Navbar />
