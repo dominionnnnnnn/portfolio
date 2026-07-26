@@ -141,7 +141,7 @@ const Contact = () => {
           <div className="h-[1px] w-8" style={{ background: "var(--border-default)" }} />
           {[
             { href: "https://www.linkedin.com/in/aabdulquawiy", icon: FaLinkedin, label: "LinkedIn" },
-            { href: "https://x.com/Dominion864414?t=rMocIolMIppTGQZqkzglXA&s=09", icon: FaXTwitter, label: "X" },
+            { href: "https://x.com/not_dominion?t=rMocIolMIppTGQZqkzglXA&s=09", icon: FaXTwitter, label: "X" },
             { href: "https://wa.me/2349038207504", icon: FaWhatsapp, label: "WhatsApp" },
           ].map(({ href, icon: Icon, label }) => (
             <a

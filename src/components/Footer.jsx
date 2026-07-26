@@ -14,7 +14,7 @@ const STACK = ["React", "Django", "GraphQL", "Supabase", "PostgreSQL", "Tailwind
 const SOCIALS = [
   { href: "https://github.com/dominionnnnnnn",  icon: FaGithub,   label: "GitHub"    },
   { href: "https://www.linkedin.com/in/aabdulquawiy", icon: FaLinkedin, label: "LinkedIn"  },
-  { href: "https://x.com/Dominion864414?t=rMocIolMIppTGQZqkzglXA&s=09", icon: FaXTwitter, label: "X" },
+  { href: "https://x.com/not_dominion?t=rMocIolMIppTGQZqkzglXA&s=09", icon: FaXTwitter, label: "X" },
   { href: "https://wa.me/2349038207504",        icon: FaWhatsapp, label: "WhatsApp"  },
 ];
 
