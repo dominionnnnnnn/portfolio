@@ -4,8 +4,8 @@
 @import "tailwindcss";
 
 /* ============================================================
-   CURSOR FOLLOWER — single inverting circle that trails the mouse
-   (mix-blend-mode: difference inverts whatever is underneath it)
+   CURSOR FOLLOWER — gooey magnetic blob that inverts + a
+   rotating text ring on hover (mix-blend-mode: difference)
    ============================================================ */
 @media (pointer: fine) {
   html,
@@ -15,44 +15,61 @@
   }
 }
 
-.cf-cursor {
+.cf-blob-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+  filter: url(#cf-goo);
+  transition: opacity 0.25s ease;
+}
+
+.cf-metaball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  background: #ffffff;
+  will-change: transform;
+}
+
+.cf-ring {
   position: fixed;
   top: 0;
   left: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 9999px;
-  background: #ffffff;
-  pointer-events: none;
+  width: 96px;
+  height: 96px;
   z-index: 9999;
+  pointer-events: none;
   opacity: 0;
   mix-blend-mode: difference;
-  will-change: transform;
-  transition: opacity 0.25s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  will-change: transform, opacity;
+  animation: cf-spin 5s linear infinite;
 }
 
-.cf-cursor__label {
+@keyframes cf-spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.cf-ring-text {
   font-family: "JetBrains Mono", monospace;
-  font-size: 5px;
+  font-size: 8.5px;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #000000;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.cf-cursor--active .cf-cursor__label {
-  opacity: 1;
+  fill: #ffffff;
 }
 
 @media (pointer: coarse) {
-  .cf-cursor {
+  .cf-blob-wrap,
+  .cf-ring {
     display: none;
   }
 }
