@@ -967,7 +967,7 @@ td { text-align: left; padding: 8px; }
 
 .project-grid-preview {
   position: relative;
-  height: 220px;
+  height: 340px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -1232,4 +1232,3 @@ td { text-align: left; padding: 8px; }
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-

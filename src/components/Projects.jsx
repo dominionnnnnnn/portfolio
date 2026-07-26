@@ -37,6 +37,22 @@ const projects = [
   },
   {
     id: 3,
+    title: "DocPilot",
+    role: "Full-Stack Build",
+    roleType: "personal",
+    summary:
+      "OpenAPI documentation intelligence platform — upload or link a spec and instantly get a quality-scored, browsable doc site. Fully client-side, no backend.",
+    highlights: [
+      "Three-pane docs dashboard: endpoint nav, full viewer, and a live per-endpoint insights rail",
+      "Spec-wide quality scoring, issue detection, and ranked recommendations",
+      "Six-language code snippets and one-click Markdown/JSON/YAML export",
+    ],
+    stack: ["React", "Vite", "TypeScript", "Tailwind CSS", "Zustand"],
+    link: "https://docpilot-beta.vercel.app/",
+    github: null,
+  },
+   {
+    id: 4,
     title: "Real Estate Template",
     role: "Frontend Demo",
     roleType: "demo",
