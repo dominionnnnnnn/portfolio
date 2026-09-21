@@ -20,19 +20,19 @@ const projects = [
     github: null,
   },
   {
-    id: 2,
-    title: "RuralAid",
+    id: 5,
+    title: "Ledgio",
     role: "Full-Stack Build",
     roleType: "personal",
     summary:
-      "Emergency response platform connecting rural communities to responders in real time. Built as a final-year dissertation project.",
+      "A modern record book for small businesses — replaces paper, calculators and manual weekly summaries with a multi-business dashboard, per-worker performance and automatic profit tracking. Installable, offline-first PWA.",
     highlights: [
-      "Three-role system (user, responder, admin) with Supabase Auth and row-level security",
-      "Real-time responder alerts and in-app emergency chat via Supabase subscriptions",
-      "Haversine geolocation on a live Leaflet map; full admin approval and onboarding flow",
+      "Multi-tenant Firestore architecture with isolated data per business and plan limits enforced in security rules",
+      "Automatic revenue / expense / profit calculations, dashboard, custom reports, and per-worker history",
+      "Installable PWA with offline writes and push notifications, plus a separate admin console for support and broadcasts",
     ],
-    stack: ["React 19", "Supabase", "Leaflet", "Tailwind CSS", "Framer Motion"],
-    link: "https://ruralaid.vercel.app/",
+    stack: ["React", "Vite", "Tailwind CSS", "Firebase", "Cloudinary"],
+    link: "https://ledgio-nine.vercel.app/",
     github: null,
   },
   {
@@ -65,6 +65,22 @@ const projects = [
     ],
     stack: ["React", "Tailwind CSS", "JavaScript"],
     link: "https://estate-temp.vercel.app/",
+    github: null,
+  },
+  {
+    id: 2,
+    title: "RuralAid",
+    role: "Full-Stack Build",
+    roleType: "personal",
+    summary:
+      "Emergency response platform connecting rural communities to responders in real time. Built as a final-year dissertation project.",
+    highlights: [
+      "Three-role system (user, responder, admin) with Supabase Auth and row-level security",
+      "Real-time responder alerts and in-app emergency chat via Supabase subscriptions",
+      "Haversine geolocation on a live Leaflet map; full admin approval and onboarding flow",
+    ],
+    stack: ["React 19", "Supabase", "Leaflet", "Tailwind CSS", "Framer Motion"],
+    link: "https://ruralaid.vercel.app/",
     github: null,
   },
 ];
