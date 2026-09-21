@@ -143,7 +143,7 @@ function FeaturedCard({ project }) {
   return (
     <div ref={ref} className={`project-featured-card ${inView ? "show" : ""}`}>
       {/* Preview pane */}
-      <div className="project-featured-preview cursor-view" data-cursor-text="View">
+      <div className="project-featured-preview">
         <SitePreview url={project.link} title={project.title} />
       </div>
 
@@ -215,7 +215,7 @@ function GridCard({ project, index }) {
       style={{ animationDelay: `${index * 120}ms` }}
     >
       {/* Preview */}
-      <div className="project-grid-preview cursor-view" data-cursor-text="View">
+      <div className="project-grid-preview">
         <SitePreview url={project.link} title={project.title} />
         <span className="project-grid-index">{num}</span>
       </div>
