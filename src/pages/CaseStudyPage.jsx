@@ -52,7 +52,7 @@ export default function CaseStudyPage() {
   };
 
   return (
-    <article className="page">
+    <article className="page case">
       <title>{`${p.name} | Abdulquawiy Adebiyi`}</title>
       <Link to="/projects" className="back-link">← All projects</Link>
       <p className="t-meta" style={{ margin: "14px 0 0", color: "var(--ink-3)" }}>Case study · {p.type}</p>

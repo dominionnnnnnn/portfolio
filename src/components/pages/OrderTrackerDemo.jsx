@@ -11,7 +11,7 @@ const STEPS = [
 ];
 
 export default function OrderTrackerDemo() {
-  const [i, setI] = useState(0);
+  const [i, setI] = useState(1);
   const status = STEPS[i].key;
   return (
     <figure style={{ margin: "36px 0 0" }}>
@@ -22,7 +22,7 @@ export default function OrderTrackerDemo() {
         </div>
         <div style={{ padding: "20px 18px", display: "grid", gap: 8, fontSize: 15.5, lineHeight: 1.4 }}>
           {STEPS.map((s, n) => {
-            const state = n < i ? "done" : n === i ? "now" : "next";
+            const state = n < i || (n === i && i === STEPS.length - 1) ? "done" : n === i ? "now" : "next";
             return (
               <motion.div key={s.key} layout transition={soft} className="demo-step" data-state={state}>
                 <span>{s.label}</span>
@@ -39,7 +39,7 @@ export default function OrderTrackerDemo() {
             whileTap={{ scale: 0.95 }}
             transition={snappy}
           >
-            {i === STEPS.length - 1 ? "Start over" : "Advance the order"}
+            {i === STEPS.length - 1 ? "Reset order" : "Advance order →"}
           </motion.button>
         </div>
       </div>

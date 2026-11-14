@@ -44,7 +44,7 @@ export default function ContactPage() {
           <div style={{ font: "400 13px/1.6 var(--font-mono)", color: "var(--ink-3)" }}>&gt; first, what are you looking for?</div>
           <QuestPicker value={quest} onPick={pick} />
           <motion.p key={quest ?? "none"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ margin: "18px 0 0", color: "var(--ink-2)", minHeight: "3.2em", textWrap: "pretty" }}>
-            {quest == null ? "Pick one and I'll fill in the subject for you." : QUESTS[quest].text}
+            {quest == null ? "Pick one and I'll point you to the fastest way to reach me." : QUESTS[quest].text}
           </motion.p>
           <div className="quest-contact" style={{ marginTop: 22, paddingTop: 22 }}>
             <a href={`mailto:${SITE.email}`} style={{ overflowWrap: "anywhere" }}>{SITE.email}</a>

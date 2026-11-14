@@ -14,6 +14,7 @@ const imageFor = (slug) => {
 const raw = [
   {
     slug: "central-exchange",
+    focus: "0%", // horizontal focal point when the screenshot is cropped to 16:10
     name: "Central Exchange",
     cat: "Frontend",
     tag: "Sole frontend dev",
@@ -41,6 +42,7 @@ const raw = [
   },
   {
     slug: "ledgio",
+    focus: "35%", // horizontal focal point when the screenshot is cropped to 16:10
     name: "Ledgio",
     cat: "Full-stack",
     tag: "Full-stack build",
@@ -49,9 +51,9 @@ const raw = [
     url: "ledgio-nine.vercel.app",
     blurb: "An offline-first record book for small businesses. It replaces paper, calculators and the manual weekly summary.",
     bullets: [
-      "Multi-tenant Firestore with isolated data per business and plan limits enforced in security rules",
+      "Multi-tenant Firestore with isolated data per business",
       "Per-worker performance and history",
-      "Automatic revenue, expense and profit tracking, installable with offline writes",
+      "Automatic revenue, expense and profit tracking",
     ],
     stack: ["React", "Vite", "Tailwind CSS", "Firebase", "Cloudinary"],
     problem:
@@ -67,6 +69,7 @@ const raw = [
   },
   {
     slug: "docpilot",
+    focus: "50%", // horizontal focal point when the screenshot is cropped to 16:10
     name: "DocPilot",
     cat: "Full-stack",
     tag: "Full-stack build",
@@ -77,7 +80,7 @@ const raw = [
     bullets: [
       "Three-pane dashboard: endpoint nav, full viewer, live insights rail",
       "Spec-wide quality scoring and issue detection",
-      "Ranked recommendations per endpoint, six-language snippets",
+      "Ranked recommendations per endpoint",
     ],
     stack: ["React", "TypeScript", "Zustand"],
     problem:
@@ -93,6 +96,7 @@ const raw = [
   },
   {
     slug: "ruralaid",
+    focus: "30%", // horizontal focal point when the screenshot is cropped to 16:10
     name: "RuralAid",
     cat: "Full-stack",
     tag: "Full-stack build",
@@ -103,8 +107,7 @@ const raw = [
     bullets: [
       "Three roles (user, responder, admin) with Supabase Auth and row-level security",
       "Real-time responder alerts and in-app chat",
-      "A live emergency map with Haversine distance matching",
-      "Responder onboarding and an admin approvals flow",
+      "A live emergency map",
     ],
     stack: ["React 19", "Supabase", "Leaflet", "Framer Motion"],
     problem:
@@ -120,6 +123,7 @@ const raw = [
   },
   {
     slug: "real-estate-template",
+    focus: "50%", // horizontal focal point when the screenshot is cropped to 16:10
     name: "Real Estate Template",
     cat: "Frontend",
     tag: "Frontend demo",

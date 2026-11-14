@@ -19,6 +19,7 @@ export function BrowserFrame({ p, layout = true }) {
           loading="lazy"
           decoding="async"
           className="frame-shot"
+          style={{ "--focus": p.focus }}
         />
       ) : (
         <div className="frame-shot frame-empty">

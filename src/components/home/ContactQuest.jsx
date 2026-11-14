@@ -5,7 +5,7 @@ import { SITE } from "../../lib/site";
 import { snappy, soft } from "../../lib/motion";
 
 export const QUESTS = [
-  { label: "A web app", rec: "call", subject: "A web app", text: "A frontend or fullstack build. The fastest route is a 30-minute call so I can scope it properly." },
+  { label: "A web app", rec: "call", subject: "A web app", text: "A frontend or fullstack build. The fastest route is a 20-minute call so I can scope it properly." },
   { label: "A backend or API", rec: "email", subject: "A backend or API", text: "Django, GraphQL, Postgres. Email me the spec or the pain point and I'll reply with how I'd approach it." },
   { label: "A full product, start to finish", rec: "call", subject: "A full product", text: "End to end is what I do. Let's talk it through on a call." },
   { label: "Just looking", rec: "wa", subject: "Just saying hi", text: "No pressure. Say hi on WhatsApp, or keep browsing the work." },
@@ -60,9 +60,9 @@ export default function ContactQuest() {
           <QuestPicker value={pick} onPick={setPick} />
         </div>
         <div className="quest-side">
-          <div style={{ font: "400 13px/1.6 var(--font-mono)", color: "var(--ink-3)" }}>&gt; {q ? q.label.toLowerCase() : "pick one, or just reach out"}</div>
+          <div style={{ font: "400 13px/1.6 var(--font-mono)", color: "var(--ink-3)" }}>&gt; {q ? q.label.toLowerCase() : "pick one"}</div>
           <motion.p key={pick ?? "none"} className="quest-text" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={soft}>
-            {q ? q.text : "Tell me what you're building and I'll point you to the quickest way to get it moving. I usually reply within 24 hours."}
+            {q ? q.text : "Pick one and I'll point you to the fastest way to reach me."}
           </motion.p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 22 }}>
             {actions.map((a) =>

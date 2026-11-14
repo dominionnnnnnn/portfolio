@@ -35,9 +35,9 @@
 /* ---------- projects ---------- */
 .seg { position: relative; display: inline-flex; gap: 2px; margin-top: 34px; padding: 4px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
 .seg button { position: relative; min-height: 40px; padding: 8px 18px; border-radius: 999px; font-size: 14.5px; font-weight: 500; color: var(--ink-2); background: none; border: 0; cursor: pointer; }
-.seg button[aria-selected="true"] { color: var(--accent-ink); }
+.seg button[aria-selected="true"] { color: var(--bg); }
 .seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.seg-pill { position: absolute; inset: 0; border-radius: 999px; background: var(--accent); }
+.seg-pill { position: absolute; inset: 0; border-radius: 999px; background: var(--ink); }
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(24px, 3vw, 40px) clamp(18px, 2.4vw, 32px); margin-top: 36px; }
 .proj-card { cursor: pointer; }
 .proj-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 16px; }
@@ -48,6 +48,8 @@
 /* ---------- case study ---------- */
 .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 18px 32px; margin-top: 34px; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .cs-hero { margin-top: 36px; border-radius: 18px; }
+.cs-hero .frame-shot { aspect-ratio: 16 / 9; }
+.page.case { padding-top: clamp(110px, 14vw, 150px); }
 .cs-body { display: flex; gap: clamp(32px, 6vw, 96px); margin-top: clamp(48px, 7vw, 88px); align-items: flex-start; }
 .cs-col { flex: 1 1 auto; min-width: 0; max-width: var(--read-w); font-size: 18px; line-height: 1.7; color: var(--ink-2); }
 .cs-col p { margin: 0; text-wrap: pretty; }

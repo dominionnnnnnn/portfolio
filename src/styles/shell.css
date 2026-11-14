@@ -173,4 +173,7 @@ body, button, input, textarea, select { font-family: var(--font-body); }
   color: var(--ink-3);
 }
 .footer-base button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-@media (max-width: 520px) { .footer-grid > div:first-child { grid-column: 1 / -1 !important; } }
+@media (max-width: 520px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > div:first-child, .footer-grid > div:last-child { grid-column: 1 / -1 !important; }
+}

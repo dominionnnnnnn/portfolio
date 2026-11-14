@@ -11,9 +11,9 @@ import ContactQuest from "../components/home/ContactQuest";
 const HomePage = () => (
   <div>
     <Hero />
+    <AboutHome />
     <SelectedWork />
     <WhatIBuild />
-    <AboutHome />
     <Experience />
     <Education />
     <GitHubHeatmap />

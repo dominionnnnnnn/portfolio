@@ -129,7 +129,7 @@
 .lens-caption { max-width: 580px; margin: 14px auto 0; font: 400 12px/1.5 var(--font-mono); color: var(--ink-3); }
 
 /* ---------- selected work ---------- */
-.showcases { display: grid; gap: clamp(72px, 9vw, 128px); margin-top: clamp(36px, 5vw, 64px); }
+.showcases { display: grid; gap: clamp(56px, 8vw, 120px); margin-top: clamp(36px, 5vw, 64px); }
 .showcase {
   display: flex;
   flex-wrap: wrap;
@@ -152,7 +152,7 @@
 .frame-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
 .frame-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-3); opacity: .5; }
 .frame-bar em { margin-left: 8px; font: 400 11px/1 var(--font-mono); font-style: normal; color: var(--ink-3); }
-.frame-shot { display: block; width: 100%; aspect-ratio: 1900 / 895; object-fit: cover; object-position: top center; }
+.frame-shot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: var(--focus, center) top; }
 .frame-empty { display: grid; place-items: center; background: linear-gradient(135deg, var(--surface-2), var(--surface)); color: var(--ink-3); }
 .cursor-glow {
   position: absolute;
@@ -171,7 +171,7 @@
 .showcase-body { flex: 1 1 300px; min-width: 0; }
 .showcase-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 16px; }
 .showcase-title { margin: 0; font: 700 clamp(30px, 3.6vw, 48px)/1.05 var(--font-display); letter-spacing: -.03em; width: fit-content; }
-.showcase-num { font: 500 12px/1 var(--font-mono); color: var(--ink-3); }
+.showcase-num { display: none; font: 500 12px/1 var(--font-mono); color: var(--ink-3); }
 .showcase-blurb { margin: 14px 0 0; font-size: clamp(17px, 1.5vw, 19px); text-wrap: pretty; }
 .showcase-actions { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 26px; }
 
@@ -206,6 +206,7 @@
   .lbl-short { display: inline; }
   .showcase-body { flex: none; padding: 18px 18px 6px; }
   .showcase-head { margin-top: 0; }
+  .showcase-num { display: inline; }
   .showcase-title { font-size: 27px; }
   .showcase-blurb { font-size: 15.5px; line-height: 1.5; color: var(--ink-2); }
   .showcase .dash-list { display: none; }
