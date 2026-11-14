@@ -1,0 +1,85 @@
+/* ============================================================
+   Abdulquawiy Adebiyi: design tokens
+   One accent (amber): primary actions + live/status only.
+   Theme is driven by [data-theme] on <html> (ThemeContext sets it).
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --bg: #070A12;
+  --surface: #0D121E;
+  --surface-2: #141B2B;
+  --line: rgba(160, 180, 255, .13);
+  --ink: #EEF1F8;
+  --ink-2: #A9B2C7;
+  --ink-3: #7F8AA3;
+  --accent: #FFB357;
+  --accent-ink: #1A1002;
+  --glass: rgba(20, 27, 43, .55);
+  --glass-hi: rgba(255, 255, 255, .16);
+  --glow: rgba(120, 150, 255, .10);
+  /* GitHub heatmap ramp (monochrome ink, not accent) */
+  --h0: rgba(160, 180, 255, .08); --h1: #2A3654; --h2: #4A5C8C; --h3: #8DA0D6; --h4: #E6ECFF;
+  --blur: 24px;
+
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(20px, 5vw, 56px);
+  --section-gap: clamp(88px, 11vw, 150px);
+  --max-w: 1240px;
+  --read-w: 700px;
+
+  --r-chip: 999px; --r-input: 12px; --r-frame: 16px; --r-surface: 20px; --r-panel: 28px;
+}
+
+[data-theme="light"] {
+  --bg: #F3F5FA;
+  --surface: #FFFFFF;
+  --surface-2: #E8ECF5;
+  --line: rgba(20, 35, 80, .14);
+  --ink: #0B1020;
+  --ink-2: #414A60;
+  --ink-3: #5E6880;
+  --accent: #A8500A;
+  --accent-ink: #FFFFFF;
+  --glass: rgba(255, 255, 255, .6);
+  --glass-hi: rgba(255, 255, 255, .9);
+  --glow: rgba(40, 80, 200, .07);
+  --h0: rgba(20, 35, 80, .07); --h1: #C5CEE6; --h2: #8E9CC6; --h3: #4F5F96; --h4: #141C3A;
+
+}
+
+/* Accessibility fallbacks for glass */
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-theme] { --blur: 0px; }
+  :root, [data-theme="dark"] { --glass: #141B2B; }
+  [data-theme="light"] { --glass: #FFFFFF; }
+}
+@media (prefers-contrast: more) {
+  :root, [data-theme="dark"] { --glass: rgba(13, 18, 30, .94); --line: rgba(200, 215, 255, .45); }
+  [data-theme="light"] { --glass: rgba(255, 255, 255, .96); --line: rgba(10, 20, 60, .5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Glass recipe: floating functional layer only (nav, sheets, chat, loader mark) */
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(1.4);
+  backdrop-filter: blur(var(--blur)) saturate(1.4);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 var(--glass-hi), 0 12px 40px rgba(0, 0, 0, .28);
+}
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+/* Type scale */
+.t-display { font: 700 clamp(40px, 6.1vw, 84px)/0.98 var(--font-display); letter-spacing: -0.035em; }
+.t-h2      { font: 700 clamp(30px, 4vw, 52px)/1.0 var(--font-display); letter-spacing: -0.03em; }
+.t-row     { font: 700 clamp(24px, 2.8vw, 36px)/1.1 var(--font-display); letter-spacing: -0.025em; }
+.t-lead    { font: 400 clamp(19px, 1.6vw, 21px)/1.5 var(--font-body); }
+.t-body    { font: 400 17px/1.6 var(--font-body); }
+.t-small   { font: 400 15.5px/1.6 var(--font-body); }
+.t-meta    { font: 500 12px/1.5 var(--font-mono); letter-spacing: .09em; text-transform: uppercase; }

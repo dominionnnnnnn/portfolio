@@ -5,6 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   { ignores: ['dist'] },
+  { files: ['api/**/*.js'], languageOptions: { globals: globals.node } },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -23,7 +24,8 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // `motion` is only referenced as <motion.div>, which this config doesn't track
+      'no-unused-vars': ['error', { varsIgnorePattern: '^([A-Z_]|motion$)' }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

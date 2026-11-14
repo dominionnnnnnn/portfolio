@@ -1,43 +1,40 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
+const KEY = "aa-theme";
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
+  if (!context) throw new Error("useTheme must be used within a ThemeProvider");
   return context;
 };
 
+const initialTheme = () => {
+  try {
+    const stored = localStorage.getItem(KEY) ?? localStorage.getItem("domstack-theme");
+    if (stored === "light" || stored === "dark") return stored;
+  } catch { /* storage unavailable */ }
+  return "dark"; // dark-first
+};
+
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    const stored = localStorage.getItem('domstack-theme');
-    if (stored === 'light' || stored === 'dark') return stored;
-    // fall back to system preference
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    return prefersLight ? 'light' : 'dark';
-  });
+  const [theme, setTheme] = useState(initialTheme);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-    }
-    localStorage.setItem('domstack-theme', theme);
+    root.dataset.theme = theme;
+    root.classList.toggle("light", theme === "light"); // old components still read .light
+    root.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#F3F5FA" : "#070A12");
+    try {
+      localStorage.setItem(KEY, theme);
+      localStorage.removeItem("domstack-theme");
+    } catch { /* ignore */ }
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeContext;

@@ -1,172 +1,112 @@
-import React from "react";
-import img from "../assets/img1.jpg";
-import { FaLocationPin, FaArrowRight, FaCode, FaServer, FaWrench } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import portrait from "../assets/portrait.jpg";
+import { Reveal } from "../components/ui/Reveal";
+import { EXPERIENCE, EDUCATION } from "../data/experience";
+import { lagosNow } from "../lib/time";
+import { SITE } from "../lib/site";
 
-const SKILL_GROUPS = [
-  {
-    label: "Frontend",
-    icon: FaCode,
-    skills: ["HTML", "CSS", "JavaScript", "React JS", "Tailwind CSS", "Vite"],
-  },
-  {
-    label: "Backend",
-    icon: FaServer,
-    skills: ["Python", "Django", "Rest API", "GraphQL", "Strawberry GraphQL", "PostgreSQL", "Supabase"],
-  },
-  {
-    label: "Tools & Practices",
-    icon: FaWrench,
-    skills: ["Git", "Docker", "Agile"],
-  },
-];
+const Float = ({ label, value, className }) => (
+  <motion.div className={`glass about-float ${className}`} whileHover={{ scale: 1.06 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
+    <div className="t-meta" style={{ fontSize: 10.5, letterSpacing: ".12em", color: "var(--ink-2)" }}>{label}</div>
+    <div style={{ marginTop: 7, font: "700 19px/1 var(--font-display)", letterSpacing: "-.02em" }}>{value}</div>
+  </motion.div>
+);
 
-const AboutPage = () => {
+const Tile = ({ big, mono, children, className = "", style }) => (
+  <Reveal className={`tile ${className}`} style={style}>
+    {big && <div className="tile-big">{big}</div>}
+    {mono && <div className="tile-mono">{mono}</div>}
+    <p>{children}</p>
+  </Reveal>
+);
+
+export default function AboutPage() {
+  const [now, setNow] = useState(lagosNow);
+  useEffect(() => {
+    const id = setInterval(() => setNow(lagosNow()), 30000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <div className="about-page-root">
-
-      {/* Glows */}
-      <div className="about-page-glow about-page-glow--tl" aria-hidden="true" />
-      <div className="about-page-glow about-page-glow--br" aria-hidden="true" />
-
-      <div className="relative z-1 px-6 lg:px-16 pt-12 pb-20">
-
-        {/* ── HERO STRIP ───────────────────────────────────────── */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 mb-16">
-
-          {/* Photo */}
-          <div className="about-photo-wrap flex-shrink-0">
-            <img
-              src={img}
-              alt="Dominion"
-              className="about-photo"
-            />
-          </div>
-
-          {/* Identity */}
-          <div className="flex flex-col justify-center gap-4 text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
-              <span className="h-2 w-2 rounded-full" style={{ background: "var(--accent)" }} />
-              <span className="text-sm font-semibold tracking-[0.2em] uppercase"
-                style={{ color: "var(--accent)", fontFamily: "'JetBrains Mono', monospace" }}>
-                About Me
-              </span>
-            </div>
-
-            <h1 className="text-4xl lg:text-6xl font-bold leading-tight"
-              style={{ color: "var(--text-primary)" }}>
-              Dominion
-            </h1>
-            <p className="text-sm"
-              style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
-              Adebiyi Abdulquawiy
-            </p>
-
-            <p className="text-xl lg:text-2xl font-light mt-1"
-              style={{ color: "var(--text-secondary)" }}>
-              Senior Fullstack Engineer
-            </p>
-
-            <div className="flex items-center justify-center lg:justify-start gap-2 mt-1">
-              <FaLocationPin size={13} style={{ color: "var(--accent)" }} />
-              <span className="text-sm" style={{ color: "var(--text-muted)" }}>
-                Nigeria &mdash; available for remote work worldwide
-              </span>
-            </div>
-
-            {/* Quick stat pills */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4">
-              {[
-                { value: "2+", label: "Years experience" },
-                { value: "React", label: "& Django" },
-                { value: "Open", label: "to opportunities" },
-              ].map((s) => (
-                <div key={s.label} className="px-4 py-2 rounded-xl border"
-                  style={{ borderColor: "var(--border-subtle)", background: "var(--bg-surface)" }}>
-                  <span className="font-bold text-sm" style={{ color: "var(--accent)" }}>{s.value}</span>
-                  <span className="text-sm ml-1" style={{ color: "var(--text-muted)" }}>{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+    <div className="page">
+      <title>About | Abdulquawiy Adebiyi</title>
+      <div className="about-top">
+        <div className="about-photo">
+          <img src={portrait} alt={`Portrait of ${SITE.name}`} width="1000" height="1333" />
+          <Float label="Speciality" value="Fullstack" className="float-a" />
+          <Float label="Experience" value="2+ Years" className="float-b" />
         </div>
-
-        {/* ── BIO ──────────────────────────────────────────────── */}
-        <div className="about-bio-divider mb-10" />
-
-        <div className="grid lg:grid-cols-2 gap-8 mb-16 max-w-5xl">
-          <p className="text-base lg:text-lg leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}>
-            I'm a fullstack engineer with 2+ years building across logistics,
-            fintech, and emergency response. I've collaborated on backend systems
-            for a logistics platform, led frontend development on a P2P crypto
-            trading platform as a freelance gig, and independently built{" "}
-            <span className="font-semibold" style={{ color: "var(--text-primary)" }}>RuralAid</span>{" "}
-            — including its real-time responder chat and live emergency map.
-          </p>
-          <p className="text-base lg:text-lg leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}>
-            My stack runs React and Tailwind on the frontend, Django and
-            Strawberry GraphQL on the backend, with PostgreSQL and Supabase
-            handling data and real-time infrastructure. I care about shipping
-            software that holds up under real conditions — not just demos well.
-          </p>
+        <div style={{ flex: "1 1 340px", minWidth: 0 }}>
+          <p className="t-meta" style={{ margin: 0, color: "var(--ink-3)" }}>{SITE.title} · Nigeria, working remotely</p>
+          <h1 className="page-title" style={{ overflowWrap: "anywhere" }}>Abdulquawiy <span style={{ color: "var(--ink-3)" }}>Adebiyi</span></h1>
         </div>
+      </div>
 
-        {/* ── SKILLS ───────────────────────────────────────────── */}
-        <div className="about-bio-divider mb-10" />
+      <div className="about-intro">
+        <p style={{ fontSize: "clamp(18px,1.6vw,20px)", color: "var(--ink)" }}>
+          I'm a fullstack engineer with 2+ years building across logistics, fintech and emergency response. I've worked
+          with a backend team on a logistics platform, led the frontend of a P2P crypto trading platform as a freelancer,
+          and built RuralAid on my own, including its real-time responder chat and live emergency map.
+        </p>
+        <p>
+          My stack runs React and Tailwind on the frontend, Django and Strawberry GraphQL on the backend, with PostgreSQL
+          and Supabase handling data and real-time infrastructure. I care about software that holds up under real
+          conditions, not software that only demos well.
+        </p>
+      </div>
 
-        <h2 className="text-xl font-bold mb-8" style={{ color: "var(--text-primary)" }}>
-          Skills & Stack
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {SKILL_GROUPS.map(({ label, icon: Icon, skills }) => (
-            <div key={label}
-              className="rounded-xl p-5 border"
-              style={{ background: "var(--bg-surface)", borderColor: "var(--border-subtle)" }}>
-              <div className="flex items-center gap-2 mb-4">
-                <Icon size={14} style={{ color: "var(--accent)" }} />
-                <span className="text-sm font-semibold tracking-wide uppercase"
-                  style={{ color: "var(--accent)", fontFamily: "'JetBrains Mono', monospace" }}>
-                  {label}
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span key={skill}
-                    className="text-xs font-medium py-1 px-3 rounded-full border"
-                    style={{ color: "var(--text-secondary)", borderColor: "var(--border-default)" }}>
-                    {skill}
-                  </span>
-                ))}
-              </div>
+      <h2 className="page-h2">A few specifics</h2>
+      <div className="bento">
+        <Tile big={now.time}>My local time (WAT). {now.status}</Tile>
+        <Tile mono={<>class Incident(models.Model):<br />&nbsp;&nbsp;...</>}>I start from the data model. If the schema is right, the UI mostly writes itself.</Tile>
+        <Tile big="3 roles">User, responder, admin. RuralAid, my final-year dissertation, enforces all three with Supabase row-level security.</Tile>
+        <Tile big="Sole dev">On the Central Exchange frontend: every screen of a live trading platform, public site to order tracker.</Tile>
+        <Tile mono="mutation { createRider }  query { transactions }">My first production GraphQL at Pavilion Technology: rider, transaction and pricing APIs on a logistics platform, built with the backend team.</Tile>
+        <Tile big="♞ + AI">Off the clock I play chess. On it, I'm learning automation with AI: getting it to take the daily stress off people.</Tile>
+        <Reveal className="tile tile-stack">
+          {[
+            ["Frontend", "HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Vite"],
+            ["Backend", "Python, Django, DRF, GraphQL, Strawberry GraphQL, PostgreSQL, Supabase, Firebase"],
+            ["Tools", "Git, Docker, Vercel, Agile"],
+          ].map(([k, v]) => (
+            <div key={k}>
+              <div className="t-meta" style={{ color: "var(--ink-3)" }}>{k}</div>
+              <p style={{ margin: "12px 0 0", fontSize: 18, lineHeight: 1.55, color: "var(--ink)" }}>{v}</p>
             </div>
           ))}
-        </div>
-
-        {/* ── CTA ──────────────────────────────────────────────── */}
-        <div className="about-cta-strip rounded-2xl px-8 py-8 flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="text-xl font-semibold mb-1" style={{ color: "var(--text-primary)" }}>
-              Let's build something together
-            </p>
-            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Open to fullstack gigs, product teams, and interesting problems.
-            </p>
-          </div>
-          <Link
-            to="/contact"
-            className="flex items-center gap-2 py-3 px-6 rounded-full font-semibold text-sm flex-shrink-0 transition-opacity duration-200 hover:opacity-80"
-            style={{ background: "var(--accent)", color: "#fff" }}
-          >
-            Get in touch <FaArrowRight size={13} />
-          </Link>
-        </div>
-
+        </Reveal>
       </div>
+
+      <h2 className="page-h2">Experience &amp; education</h2>
+      <ul className="xp-list">
+        {EXPERIENCE.map((j) => (
+          <Reveal as="li" key={j.org + j.mark} className="xp-row">
+            <div className="xp-date">{j.date}</div>
+            <div style={{ minWidth: 0 }}>
+              {j.roles.map((r, n) => (
+                <div key={r.title} style={{ fontSize: n ? 17 : 20, fontWeight: 600, color: n ? "var(--ink-2)" : "var(--ink)" }}>
+                  {r.title} {r.date && <span className="xp-date" style={{ fontWeight: 400 }}>· {r.date}</span>}
+                </div>
+              ))}
+              <div style={{ marginTop: 2 }}>{j.org} <span style={{ color: "var(--ink-3)" }}>· {j.kind}</span></div>
+              <ul className="dash-list" style={{ maxWidth: 680, marginTop: 14 }}>
+                {j.points.map((b) => <li key={b} style={{ fontSize: 16 }}>{b}</li>)}
+              </ul>
+            </div>
+          </Reveal>
+        ))}
+        {EDUCATION.map((e) => (
+          <Reveal as="li" key={e.school} className="xp-row">
+            <div className="xp-date">{e.date}</div>
+            <div>
+              <div style={{ fontSize: 20, fontWeight: 600 }}>{e.what}</div>
+              <div style={{ marginTop: 2 }}>{e.school} <span style={{ color: "var(--ink-3)" }}>· Education</span></div>
+              {e.note && <p style={{ margin: "10px 0 0", color: "var(--ink-2)", fontSize: 16 }}>{e.note}</p>}
+            </div>
+          </Reveal>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default AboutPage;
+}
