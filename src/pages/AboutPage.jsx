@@ -39,7 +39,7 @@ export default function AboutPage() {
         </div>
         <div style={{ flex: "1 1 340px", minWidth: 0 }}>
           <p className="t-meta" style={{ margin: 0, color: "var(--ink-3)" }}>{SITE.title} · Nigeria, working remotely</p>
-          <h1 className="page-title" style={{ overflowWrap: "anywhere" }}>Abdulquawiy <span style={{ color: "var(--ink-3)" }}>Adebiyi</span></h1>
+          <h1 className="page-title rise" style={{ overflowWrap: "anywhere", "--d": "0.08s" }}>Abdulquawiy <span style={{ color: "var(--ink-3)" }}>Adebiyi</span></h1>
         </div>
       </div>
 

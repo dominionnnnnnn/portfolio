@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section data-tone="0" className="hero">
       <div>
-        <p className="t-meta hero-meta">
+        <p className="t-meta hero-meta rise" style={{ "--d": "0.1s" }}>
           <span>{SITE.name}</span>
           <span aria-hidden="true" style={{ color: "var(--ink-3)" }}>·</span>
           <span>{SITE.title}</span>
@@ -23,20 +23,20 @@ export default function Hero() {
             Available for projects
           </span>
         </p>
-        <h1 className="t-display hero-title">
+        <h1 className="t-display hero-title rise" style={{ "--d": "0.18s" }}>
           From first click to final query, I build <span style={{ color: "var(--ink-3)" }}>the whole thing.</span>
         </h1>
-        <p className="hero-lead">
+        <p className="hero-lead rise" style={{ "--d": "0.28s" }}>
           Production-grade web apps, end to end: Django and GraphQL backends through to polished React frontends, for
           international clients and remote teams.
         </p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
+        <div className="rise" style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32, "--d": "0.38s" }}>
           <Magnetic {...book}>Book a call</Magnetic>
           <motion.a href={SITE.cv} download className="btn-secondary" whileHover={{ y: -2 }} whileTap={press} transition={snappy}>
             Download CV <span style={{ color: "var(--ink-3)" }}>↓</span>
           </motion.a>
         </div>
-        <div className="hero-links">
+        <div className="hero-links rise" style={{ "--d": "0.46s" }}>
           <a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>

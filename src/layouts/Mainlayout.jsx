@@ -6,6 +6,7 @@ import Nav from "../components/shell/Nav";
 import Footer from "../components/shell/Footer";
 import IntroLoader from "../components/shell/IntroLoader";
 import ChatBubble from "../components/shell/ChatBubble";
+import ScrollProgress from "../components/shell/ScrollProgress";
 import { soft } from "../lib/motion";
 
 // Freeze the outlet so the exiting page keeps rendering its own content.
@@ -42,10 +43,11 @@ export default function Mainlayout() {
   return (
     <>
       <Analytics />
+      <ScrollProgress />
       <a href="#main" className="skip-link">Skip to content</a>
       <Nav />
       <main id="main" style={{ position: "relative", zIndex: 1 }}>
-        <AnimatePresence mode="wait" initial={false} onExitComplete={onExitComplete}>
+        <AnimatePresence mode="wait" onExitComplete={onExitComplete}>
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 14 }}

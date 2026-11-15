@@ -3,9 +3,15 @@
 export const snappy = { type: "spring", stiffness: 420, damping: 28, mass: 0.8 }; // UI: buttons, toggles
 export const soft = { type: "spring", stiffness: 170, damping: 24, mass: 1 };      // layout, pages
 
+const ease = [0.2, 0.8, 0.2, 1];
 export const reveal = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: soft },
+  hidden: { opacity: 0, y: 22, filter: "blur(6px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { y: { duration: 0.8, ease }, opacity: { duration: 0.6, ease: "easeOut" }, filter: { duration: 0.6, ease: "easeOut" } },
+  },
 };
 export const stagger = { show: { transition: { staggerChildren: 0.07 } } };
 export const viewport = { once: true, amount: 0.2 };

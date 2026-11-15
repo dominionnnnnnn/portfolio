@@ -50,6 +50,13 @@
 
 }
 
+/* Entrance: rise in from a soft blur. Delay per element via --d. */
+@keyframes aa-rise {
+  from { opacity: 0; transform: translateY(22px); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.rise { animation: aa-rise .8s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both; }
+
 /* Accessibility fallbacks for glass */
 @media (prefers-reduced-transparency: reduce) {
   :root, [data-theme] { --blur: 0px; }

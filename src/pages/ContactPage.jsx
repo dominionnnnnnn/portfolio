@@ -37,7 +37,7 @@ export default function ContactPage() {
       <p className="t-meta" style={{ margin: 0, display: "inline-flex", alignItems: "center", gap: 8, color: "var(--ink-2)" }}>
         <span className="dot-live pulse" />Available for projects · Typical reply within 24 hours
       </p>
-      <h1 className="page-title" style={{ textWrap: "balance" }}>Tell me what <span style={{ color: "var(--ink-3)" }}>you're building.</span></h1>
+      <h1 className="page-title rise" style={{ textWrap: "balance", "--d": "0.08s" }}>Tell me what <span style={{ color: "var(--ink-3)" }}>you're building.</span></h1>
 
       <div className="contact-grid">
         <div>

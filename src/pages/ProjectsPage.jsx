@@ -16,7 +16,7 @@ export default function ProjectsPage() {
     <div className="page">
       <title>Projects | Abdulquawiy Adebiyi</title>
       <p className="t-meta" style={{ margin: 0, color: "var(--ink-3)" }}>ls ./projects · {list.length} of {PROJECTS.length}</p>
-      <h1 className="page-title">Everything <span style={{ color: "var(--ink-3)" }}>I've shipped.</span></h1>
+      <h1 className="page-title rise" style={{ "--d": "0.08s" }}>Everything <span style={{ color: "var(--ink-3)" }}>I've shipped.</span></h1>
 
       <div className="seg" role="tablist" aria-label="Filter projects">
         {FILTERS.map((f) => (
