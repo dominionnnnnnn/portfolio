@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { snappy, press } from "../../lib/motion";

@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { useIntro } from "./IntroContext";
 
@@ -14,6 +15,7 @@ export default function IntroLoader() {
 
   useEffect(() => {
     if (!loading) return;
+    if (document.documentElement.dataset.intro === "skip") return;
     const m = mark.current, b = bg.current, w = wrap.current;
     if (!m || !b || !m.animate) return finish();
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -56,7 +58,7 @@ export default function IntroLoader() {
   if (!loading) return null;
 
   return (
-    <div ref={wrap} key={run} aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 100, display: "grid", placeItems: "center" }}>
+    <div ref={wrap} key={run} aria-hidden="true" className="intro-overlay" style={{ position: "fixed", inset: 0, zIndex: 100, display: "grid", placeItems: "center" }}>
       <div ref={bg} style={{ position: "absolute", inset: 0, background: "var(--bg)" }} />
       <div ref={mark} className="aa-mark" style={{ position: "relative", width: 128, height: 128, fontSize: 46, opacity: 0, boxShadow: "inset 0 1.5px 0 var(--glass-hi), inset 0 -26px 40px var(--glow), 0 24px 60px rgba(0,0,0,.4)" }}>
         AA

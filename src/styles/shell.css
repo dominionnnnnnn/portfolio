@@ -2,7 +2,12 @@
    App shell: page ground, nav, buttons, footer.
    ============================================================ */
 
-html { background: var(--bg); }
+html {
+  overflow-x: clip; /* side-entrance animations start off-screen; never let them widen the page on phones */
+  background-color: var(--bg);
+  background-image: radial-gradient(120% 80% at 50% -10%, var(--bg-2), transparent 70%);
+  background-attachment: fixed;
+}
 body {
   margin: 0;
   background: transparent;

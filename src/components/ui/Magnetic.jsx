@@ -1,5 +1,6 @@
+"use client";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { snappy, magnet, press } from "../../lib/motion";
 
 const MLink = motion.create(Link);
@@ -32,7 +33,7 @@ export default function Magnetic({ to, href, className = "", style, children, ..
     transition: snappy,
     ...rest,
   };
-  if (to) return <MLink to={to} {...props}>{children}</MLink>;
+  if (to) return <MLink href={to} {...props}>{children}</MLink>;
   if (href) return <motion.a href={href} {...props}>{children}</motion.a>;
   return <motion.button type="button" {...props}>{children}</motion.button>;
 }

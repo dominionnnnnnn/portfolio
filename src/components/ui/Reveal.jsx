@@ -1,11 +1,12 @@
+"use client";
 import { motion } from "framer-motion";
 import { reveal, stagger, viewport } from "../../lib/motion";
 
 /** Section reveal: short y-offset + opacity, runs once at ~20% visibility. */
-export function Reveal({ as = "div", children, ...rest }) {
+export function Reveal({ as = "div", children, delay = 0, from, ...rest }) {
   const M = motion[as];
   return (
-    <M variants={reveal} initial="hidden" whileInView="show" viewport={viewport} {...rest}>
+    <M variants={reveal} custom={{ d: delay, ...from }} initial="hidden" whileInView="show" viewport={viewport} {...rest}>
       {children}
     </M>
   );

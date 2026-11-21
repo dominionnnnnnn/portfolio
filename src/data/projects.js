@@ -1,15 +1,16 @@
 // All project content in one place. Home shows the first three.
 // `draft: true` marks case-study copy written for you to check.
-// Screenshots: drop a file named <slug>.png / .jpg / .webp into src/assets/projects/.
-// A .png or .jpg wins over the .webp placeholder, so replacing an image needs no code change.
+// Screenshots: put <slug>.jpg in public/projects/ and update IMAGES below.
 
-const files = import.meta.glob("../assets/projects/*.{png,jpg,jpeg,webp}", { eager: true, import: "default" });
-const imageFor = (slug) => {
-  const hits = Object.entries(files).filter(([p]) => p.split("/").pop().replace(/\.\w+$/, "") === slug);
-  if (!hits.length) return null;
-  hits.sort(([a], [b]) => (a.endsWith(".webp") ? 1 : 0) - (b.endsWith(".webp") ? 1 : 0));
-  return hits[0][1];
+// Screenshots live in public/projects/<slug>.(jpg|png|webp).
+const IMAGES = {
+  "central-exchange": "/projects/central-exchange.jpg",
+  ledgio: "/projects/ledgio.jpg",
+  docpilot: "/projects/docpilot.jpg",
+  ruralaid: "/projects/ruralaid.jpg",
+  "real-estate-template": "/projects/real-estate-template.webp",
 };
+const imageFor = (slug) => IMAGES[slug] ?? null;
 
 const raw = [
   {

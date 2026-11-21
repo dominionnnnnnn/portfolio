@@ -3,7 +3,7 @@ import { EDUCATION } from "../../data/experience";
 
 export default function Education() {
   return (
-    <section id="education" data-tone="4" className="section">
+    <section id="education" className="section">
       <Reveal>
         <h2 className="t-h2" style={{ margin: 0, fontSize: "clamp(26px,3vw,38px)" }}>Education</h2>
       </Reveal>

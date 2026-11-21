@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useMemo, useState } from "react";
 import { Reveal } from "../ui/Reveal";
 import { SITE } from "../../lib/site";
@@ -60,7 +61,7 @@ export default function GitHubHeatmap() {
   const weeks = useMemo(() => (data ? toWeeks(data.days.slice(-371)) : null), [data]);
 
   return (
-    <section id="github" data-tone="5" className="section">
+    <section id="github" className="section">
       <Reveal className="section-head" style={{ marginBottom: 28 }}>
         <h2 className="t-h2" style={{ margin: 0 }}>On GitHub</h2>
         <a href={SITE.github} target="_blank" rel="noopener noreferrer" className="hero-links-a mono-link">@{SITE.githubHandle} ↗</a>

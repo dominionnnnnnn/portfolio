@@ -1,3 +1,4 @@
+"use client";
 import { motion, useScroll } from "framer-motion";
 
 /** 2px accent bar along the top edge showing how far down the page you are. */

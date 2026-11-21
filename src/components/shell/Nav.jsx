@@ -1,7 +1,8 @@
+"use client";
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
 import { useIntro } from "./IntroContext";
 import Magnetic from "../ui/Magnetic";
 import { snappy, soft, press } from "../../lib/motion";
@@ -9,30 +10,33 @@ import { SITE } from "../../lib/site";
 
 export const NAV_LINKS = [
   { label: "Work", to: "/projects", match: (p) => p.startsWith("/projects") },
+  { label: "Services", to: "/services", match: (p) => p.startsWith("/services") },
   { label: "About", to: "/about", match: (p) => p === "/about" },
   { label: "Experience", to: "/#experience", match: (p, h) => p === "/" && h === "#experience" },
   { label: "Contact", to: "/contact", match: (p) => p === "/contact" },
 ];
 
-function ThemeToggle({ size = 40 }) {
-  const { theme, toggleTheme } = useTheme();
-  return (
-    <motion.button
-      type="button"
-      onClick={toggleTheme}
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      whileHover={{ rotate: 180 }}
-      whileTap={{ scale: 0.88 }}
-      transition={snappy}
-      style={{ flex: "0 0 auto", width: size, height: size, borderRadius: "50%", display: "grid", placeItems: "center", color: "var(--ink)" }}
-    >
-      <motion.span
-        animate={{ rotate: theme === "dark" ? 0 : 180 }}
-        transition={soft}
-        style={{ width: 15, height: 15, borderRadius: "50%", border: "1.5px solid currentColor", background: "linear-gradient(90deg,currentColor 50%,transparent 50%)" }}
-      />
-    </motion.button>
-  );
+/** Which surface sits under the nav: lets the glass pill switch palette over light sections. */
+function useSurfaceUnderNav(pathname) {
+  const [surface, setSurface] = useState("dark");
+  useEffect(() => {
+    let raf = 0;
+    const check = () => {
+      raf = 0;
+      const y = 40;
+      const light = [...document.querySelectorAll('main .band[data-surface="light"], main .band-cut[data-surface="light"]')].some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= y && r.bottom >= y;
+      });
+      setSurface(light ? "light" : "dark");
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(check); };
+    check();
+    window.addEventListener("scroll", on, { passive: true });
+    window.addEventListener("resize", on);
+    return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); cancelAnimationFrame(raf); };
+  }, [pathname]);
+  return surface;
 }
 
 function Burger({ open, onClick }) {
@@ -58,7 +62,15 @@ function Burger({ open, onClick }) {
 }
 
 export default function Nav() {
-  const { pathname, hash } = useLocation();
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
+  useEffect(() => {
+    const on = () => setHash(window.location.hash);
+    on();
+    window.addEventListener("hashchange", on);
+    return () => window.removeEventListener("hashchange", on);
+  }, [pathname]);
+  const surface = useSurfaceUnderNav(pathname);
   const { loading } = useIntro();
   const [hovered, setHovered] = useState(null);
   const [menu, setMenu] = useState(false);
@@ -76,9 +88,9 @@ export default function Nav() {
 
   return (
     <>
-      <header className="nav-header">
+      <header className="nav-header" data-surface={surface === "light" ? "light" : undefined}>
         <nav aria-label="Primary" className="glass nav-pill">
-          <Link to="/" aria-label={`${SITE.name}, home`} className="nav-brand">
+          <Link href="/" aria-label={`${SITE.name}, home`} className="nav-brand">
             <span id="aa-nav-mark" aria-hidden="true" className="aa-mark" style={{ width: 36, height: 36, flex: "0 0 36px", fontSize: 13, opacity: loading ? 0 : 1 }}>
               AA
             </span>
@@ -89,9 +101,10 @@ export default function Nav() {
 
           <div className="hidden min-[860px]:flex" style={{ gap: 2, margin: "0 6px" }} onMouseLeave={() => setHovered(null)}>
             {NAV_LINKS.map((l, i) => (
-              <NavLink
+              <Link
                 key={l.label}
-                to={l.to}
+                href={l.to}
+                onClick={() => setHash(l.to.includes("#") ? "#" + l.to.split("#")[1] : "")}
                 onMouseEnter={() => setHovered(i)}
                 onFocus={() => setHovered(i)}
                 onBlur={() => setHovered(null)}
@@ -101,12 +114,11 @@ export default function Nav() {
               >
                 {pill === i && <motion.span layoutId="nav-pill" className="aa-nav-link-pill" transition={soft} />}
                 <span style={{ position: "relative" }}>{l.label}</span>
-              </NavLink>
+              </Link>
             ))}
           </div>
 
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 4 }}>
-            <ThemeToggle />
             <span className="hidden min-[860px]:block">
               <Magnetic to="/contact" style={{ padding: "10px 18px", fontSize: 14.5 }}>
                 Get in touch
@@ -141,13 +153,13 @@ export default function Nav() {
             >
               {NAV_LINKS.map((l, i) => (
                 <motion.div key={l.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0, transition: { ...soft, delay: 0.03 * i } }}>
-                  <Link to={l.to} className="menu-link" aria-current={i === active ? "page" : undefined}>
+                  <Link href={l.to} className="menu-link" aria-current={i === active ? "page" : undefined}>
                     {l.label}
                   </Link>
                 </motion.div>
               ))}
               <motion.div whileTap={press} transition={snappy}>
-                <Link to="/contact" className="btn-primary" style={{ marginTop: 6, width: "100%", padding: "15px 16px", borderRadius: 16, justifyContent: "center" }}>
+                <Link href="/contact" className="btn-primary" style={{ marginTop: 6, width: "100%", padding: "15px 16px", borderRadius: 16, justifyContent: "center" }}>
                   Get in touch
                 </Link>
               </motion.div>

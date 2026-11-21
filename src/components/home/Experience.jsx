@@ -1,3 +1,4 @@
+"use client";
 import { useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { EXPERIENCE } from "../../data/experience";
@@ -110,7 +111,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" data-tone="4" className="section exp" aria-labelledby="exp-title">
+    <section id="experience" className="section exp" aria-labelledby="exp-title">
       <div ref={outer} style={pin ? { height: `${N * 90 + 40}vh` } : undefined}>
         <div className={pin ? "exp-pinned" : undefined}>
           <div className="exp-head">

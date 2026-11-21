@@ -1,11 +1,13 @@
 /* ============================================================
    Abdulquawiy Adebiyi: design tokens
    One accent (amber): primary actions + live/status only.
-   Theme is driven by [data-theme] on <html> (ThemeContext sets it).
+   The page ground is navy. Some sections are bands with their own palette
+   ([data-surface="light"] or "dusk"); tokens cascade, so everything inside adapts.
+   Backgrounds never change on scroll: sections cut in with rounded edges instead.
    ============================================================ */
-:root,
-[data-theme="dark"] {
+:root {
   --bg: #070A12;
+  --bg-2: #0B1120;
   --surface: #0D121E;
   --surface-2: #141B2B;
   --line: rgba(160, 180, 255, .13);
@@ -33,21 +35,26 @@
   --r-chip: 999px; --r-input: 12px; --r-frame: 16px; --r-surface: 20px; --r-panel: 28px;
 }
 
-[data-theme="light"] {
-  --bg: #F3F5FA;
-  --surface: #FFFFFF;
-  --surface-2: #E8ECF5;
-  --line: rgba(20, 35, 80, .14);
-  --ink: #0B1020;
-  --ink-2: #414A60;
-  --ink-3: #5E6880;
-  --accent: #A8500A;
-  --accent-ink: #FFFFFF;
-  --glass: rgba(255, 255, 255, .6);
-  --glass-hi: rgba(255, 255, 255, .9);
-  --glow: rgba(40, 80, 200, .07);
+/* ---------- band palettes ---------- */
+[data-surface="dusk"] {
+  --bg: #0F1729; --bg-2: #18233D; --surface: #16203A; --surface-2: #1F2B48;
+  --line: rgba(170, 190, 255, .16); --ink: #EEF1F8; --ink-2: #B5BED3; --ink-3: #8994AE;
+  --glass: rgba(26, 36, 60, .6); --glow: rgba(130, 160, 255, .12);
+  color: var(--ink);
+}
+[data-surface="deep"] {
+  --bg: #04060B; --bg-2: #080C16; --surface: #0B0F1A; --surface-2: #121827;
+  --line: rgba(160, 180, 255, .12);
+  color: var(--ink);
+}
+[data-surface="light"] {
+  --bg: #D9E0EE; --bg-2: #EBEFF8; --surface: #F4F6FB; --surface-2: #C8D1E4;
+  --line: rgba(20, 35, 80, .15); --ink: #0B1020; --ink-2: #3D4760; --ink-3: #5A6580;
+  --accent: #A8500A; --accent-ink: #FFFFFF;
+  --glass: rgba(240, 243, 250, .7); --glass-hi: rgba(255, 255, 255, .92); --glow: rgba(40, 80, 200, .08);
   --h0: rgba(20, 35, 80, .07); --h1: #C5CEE6; --h2: #8E9CC6; --h3: #4F5F96; --h4: #141C3A;
-
+  color: var(--ink);
+  color-scheme: light;
 }
 
 /* Entrance: rise in from a soft blur. Delay per element via --d. */
@@ -59,13 +66,10 @@
 
 /* Accessibility fallbacks for glass */
 @media (prefers-reduced-transparency: reduce) {
-  :root, [data-theme] { --blur: 0px; }
-  :root, [data-theme="dark"] { --glass: #141B2B; }
-  [data-theme="light"] { --glass: #FFFFFF; }
+  :root { --blur: 0px; }
 }
 @media (prefers-contrast: more) {
-  :root, [data-theme="dark"] { --glass: rgba(13, 18, 30, .94); --line: rgba(200, 215, 255, .45); }
-  [data-theme="light"] { --glass: rgba(255, 255, 255, .96); --line: rgba(10, 20, 60, .5); }
+  :root { --line: rgba(200, 215, 255, .45); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }

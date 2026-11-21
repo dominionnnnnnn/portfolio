@@ -1,6 +1,8 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Magnetic from "../ui/Magnetic";
+import ClickToQuery from "./ClickToQuery";
 import { SITE } from "../../lib/site";
 import { snappy, soft } from "../../lib/motion";
 
@@ -48,7 +50,8 @@ export default function ContactQuest() {
   ];
 
   return (
-    <section id="contact" data-tone="7" className="section">
+    <section id="contact" className="section">
+      <ClickToQuery />
       <motion.div
         className="quest-card"
         initial={{ opacity: 0, y: 16 }}
